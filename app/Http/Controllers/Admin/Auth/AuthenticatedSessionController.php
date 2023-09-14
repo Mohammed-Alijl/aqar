@@ -39,12 +39,19 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $locale =  Session::get('locale');
         Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect(RouteServiceProvider::ADMIN);
+
+        return $this->loggedOut($request, $locale) ?: redirect(RouteServiceProvider::ADMIN);
+    }
+
+    protected function loggedOut(Request $request, $locale)
+    {
+        Session::put('locale',$locale);
     }
 }

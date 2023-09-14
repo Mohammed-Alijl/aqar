@@ -1,7 +1,7 @@
 @extends('admin.layouts.master2')
 
 @section('title')
-    تسجيل الدخول
+{{__('admin/pages/login.login')}}
 @stop
 
 
@@ -23,12 +23,12 @@
                                 <div class="card-sigin">
                                     <div class="card-sigin">
                                         <div class="main-signup-header">
-                                            <h2>مرحبا بك</h2>
-                                            <h5 class="font-weight-semibold mb-4"> تسجيل الدخول</h5>
+                                            <h2>{{__('admin/pages/login.welcome.back')}}</h2>
+                                            <h5 class="font-weight-semibold mb-4"> {{__('admin/pages/login.login')}}</h5>
                                             <form method="POST" action="{{ route('admin.login') }}">
                                                 @csrf
                                                 <div class="form-group">
-                                                    <label>البريد الالكتروني</label>
+                                                    <label>{{__('admin/pages/login.email')}}</label>
                                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                                     @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>كلمة المرور</label>
+                                                    <label>{{__('admin/pages/login.password')}}</label>
 
                                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
@@ -48,19 +48,21 @@
                                                   </span>
                                                     @enderror
                                                     <div class="form-group row">
-                                                        <div class="col-md-6 offset-md-4">
+                                                        <div class="col-md-6">
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                                @if(\Illuminate\Support\Facades\App::getLocale() == 'ar')
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                @endif
                                                                 <label class="form-check-label" for="remember">
-                                                                    {{ __('تذكرني') }}
+                                                                    {{__('admin/pages/login.remember.me')}}
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-main-primary btn-block">
-                                                    {{ __('تسجيل الدخول') }}
+                                                    {{__('admin/pages/login.login')}}
                                                 </button>
                                             </form>
                                         </div>
