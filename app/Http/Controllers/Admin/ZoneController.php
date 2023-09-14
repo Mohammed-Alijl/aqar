@@ -67,9 +67,9 @@ class ZoneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        $this->zoneRepository->delete($id);
+        $this->zoneRepository->delete($request->id);
         return redirect()->back()->with('delete-success',__('success_messages.zone.delete.success'));
     }
 }
