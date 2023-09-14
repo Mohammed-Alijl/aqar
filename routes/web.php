@@ -15,7 +15,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-require __DIR__ . '/auth.php';
 
 Route::group(
     [

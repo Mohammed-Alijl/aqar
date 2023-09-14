@@ -58,7 +58,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(CateogryRequest $request)
     {
         $this->categoryRepository->update($request,$request->id);
         return redirect()->back()->with('edit-success',__('success_messages.category.edit.success'));
@@ -67,10 +67,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
         //You Should Edit This To Prevent Delete If The Category Has Any Aqar
-        $this->categoryRepository->delete($id);
+        $this->categoryRepository->delete($request->id);
         return redirect()->back()->with('delete-success',__('success_messages.category.delete.success'));
     }
 }

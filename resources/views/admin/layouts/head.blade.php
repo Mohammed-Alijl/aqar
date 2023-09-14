@@ -1,5 +1,5 @@
 <!-- Title -->
-<title> Valex -  Premium dashboard ui bootstrap rwd admin html5 template </title>
+<title>@yield('title','known') </title>
 <!-- Favicon -->
 <link rel="icon" href="{{URL::asset('assets/img/brand/favicon.png')}}" type="image/x-icon"/>
 <!-- Icons css -->
@@ -28,3 +28,4 @@
     <!---Skinmodes css-->
     <link href="{{URL::asset('assets/css/skin-modes.css')}}" rel="stylesheet">
 @endif
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

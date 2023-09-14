@@ -5,7 +5,7 @@ return [
     //=============================================================================================
     // CATEGORIES
     //=============================================================================================
-    'category.add.success' => 'Category Was Added Successfully',
-    'category.edit.success' => 'Category Was Edited Successfully',
-    'category.delete.success' => 'Category Was Deleted Successfully',
+    'category.add.success' => 'تمت اضافة القسم بنجاح',
+    'category.edit.success' => 'تم تعديل القسم بنجاح',
+    'category.delete.success' => 'تم حذف القسم بنجاح',
 ];
