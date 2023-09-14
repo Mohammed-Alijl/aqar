@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,9 @@ Route::prefix('admin')->group(function () {
 
         //Auth Logout
         Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
+
+        //Category
+        Route::resource('categories',CategoryController::class)->except(['show','create','edit']);
     });
 
 //    Route::get('/{page}', [AdminController::class,'index']);
