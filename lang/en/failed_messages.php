@@ -12,4 +12,10 @@ return [
     'category.display_order.integer' => 'The Display Order Should Be Integer Only',
     'display_order.required_if' => 'When The Display In Home Page Is True You Should Enter The Display Order',
 
+    //================================================================================
+    // ZONES==========================================================================
+    //================================================================================
+    'zone.name.required' => 'The Name Of Zone Is Required',
+    'zone.name.max' => 'The Name Of Zone Is Too Long',
+
 ];
