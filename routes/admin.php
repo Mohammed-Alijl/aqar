@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ZoneController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ Route::prefix('admin')->group(function () {
 
         //Category
         Route::resource('categories',CategoryController::class)->except(['show','create','edit']);
+
+        //Zone
+        Route::resource('zones',ZoneController::class)->except(['show','create','edit']);
     });
 
 //    Route::get('/{page}', [AdminController::class,'index']);
