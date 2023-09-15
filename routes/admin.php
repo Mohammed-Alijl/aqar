@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ZoneController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AttributeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,9 @@ Route::prefix('admin')->group(function () {
 
         //Zone
         Route::resource('zones',ZoneController::class)->except(['show','create','edit']);
+
+        //Attribute
+        Route::resource('attributes',AttributeController::class)->except(['create','edit']);
     });
 
 //    Route::get('/{page}', [AdminController::class,'index']);
