@@ -18,4 +18,16 @@ return [
     'zone.name.required' => 'The Name Of Zone Is Required',
     'zone.name.max' => 'The Name Of Zone Is Too Long',
 
+    //================================================================================
+    // ATTRIBUTES=====================================================================
+    //================================================================================
+    'attribute.name.required' => 'The Name Of Attribute Is Required',
+    'attribute.name.max' => 'The Name Of Attribute Is Too Long',
+
+    //================================================================================
+    // ATTRIBUTES=====================================================================
+    //================================================================================
+    'attribute.value.name.required' => 'The Name Of Attribute Value Is Required',
+    'attribute.value.name.max' => 'The Name Of Attribute Value Is Too Long',
+
 ];
