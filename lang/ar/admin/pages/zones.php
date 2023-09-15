@@ -13,7 +13,7 @@ return [
     'cancel' =>  'اغلاق',
     'add' =>  'اضافة',
     'are.you.sure' =>  'هل انت متأكد؟',
-    'delete.zone.confirm.message' =>  'لن تكون قادرا على استرجاع هذا القسم',
+    'delete.zone.confirm.message' =>  'لن تكون قادرا على استرجاع هذه المنطقة',
     'deleted' =>  'تم الحذف',
     'zone.add' =>  'تم اضافة المنطقة',
     'zone.edit' =>  'تم تعديل المنطقة',

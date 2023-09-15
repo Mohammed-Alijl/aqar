@@ -1,0 +1,20 @@
+<?php
+return [
+    'attributes' => 'المواصفات',
+    'list' => 'قائمة المواصفات',
+    'add.attribute' => 'اضافة صفة',
+    'name' => 'الاسم',
+    'action' => 'الاجراءات',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
+    'add' => 'اضافة',
+    'cancel' => 'اغلاق',
+    'name.invalid' => 'اسم الصفة مطلوب',
+    'edit.attribute' => 'تعديل الصفة',
+    'deleted' => 'تم الحذف',
+    'attribute.add' => 'تمت اضافة الصفة',
+    'attribute.edit' => 'تم تعديل الصفة',
+    'attribute.cannot.delete' => "لا يمكن حذف هذه الصفة",
+    'are.you.sure' => 'هل انت متأكد؟',
+    'delete.attribute.confirm.message' => 'لن تكون قادرا على استرجاع هذه الصفة',
+];

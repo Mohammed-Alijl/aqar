@@ -16,4 +16,11 @@ return [
     'zone.edit.success' => 'Zone Was Edited Successfully',
     'zone.delete.success' => 'Zone Was Deleted Successfully',
 
+    //=============================================================================================
+    // ATTRIBUTES =================================================================================
+    //=============================================================================================
+    'attribute.add.success' => 'Attribute Was Added Successfully',
+    'attribute.edit.success' => 'Attribute Was Edited Successfully',
+    'attribute.delete.success' => 'Attribute Was Deleted Successfully',
+
 ];

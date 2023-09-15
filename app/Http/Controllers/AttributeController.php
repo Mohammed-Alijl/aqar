@@ -18,7 +18,7 @@ class AttributeController extends Controller
     public function index()
     {
         $attributes = $this->attributeRepository->getAll();
-        return view('admin.attribute.index',compact($attributes));
+        return view('admin.attribute.index',compact('attributes'));
     }
 
     /**
