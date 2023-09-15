@@ -17,4 +17,13 @@ return [
     'attribute.cannot.delete' => "لا يمكن حذف هذه الصفة",
     'are.you.sure' => 'هل انت متأكد؟',
     'delete.attribute.confirm.message' => 'لن تكون قادرا على استرجاع هذه الصفة',
+    'attribute.value' => 'قيم الصفة',
+    'value.list' => 'قائمة قيم الصفة',
+    'add.value' => 'اضف قيمة',
+    'edit.value' => 'تعديل القيمة',
+    'name.value.invalid' => 'اسم القيمة مطلوب',
+    'add.value.new' => 'اضف قيمة جديدة',
+    'attribute.value.add' => 'تمت اضافة القيمة',
+    'attribute.value.edit' => 'تم تعديل القيمة',
+    'delete.attribute.value.confirm.message' => 'لن تكون قادرا على استرجاع هذا',
 ];

@@ -23,4 +23,11 @@ return [
     'attribute.edit.success' => 'Attribute Was Edited Successfully',
     'attribute.delete.success' => 'Attribute Was Deleted Successfully',
 
+    //=============================================================================================
+    // ATTRIBUTES VALUE ===========================================================================
+    //=============================================================================================
+    'attribute.value.add.success' => 'Attribute Value Was Added Successfully',
+    'attribute.value.edit.success' => 'Attribute Value Was Edited Successfully',
+    'attribute.value.delete.success' => 'Attribute Value Was Deleted Successfully',
+
 ];

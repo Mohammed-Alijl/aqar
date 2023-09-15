@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AttributeValueController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ZoneController;
@@ -34,6 +35,10 @@ Route::prefix('admin')->group(function () {
 
         //Attribute
         Route::resource('attributes',AttributeController::class)->except(['create','edit']);
+
+        //Attribute Value
+        Route::resource('attribute/values',AttributeValueController::class)->except(['index','show','create','edit']);
+
     });
 
 //    Route::get('/{page}', [AdminController::class,'index']);
