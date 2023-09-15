@@ -25,7 +25,7 @@ return [
     'attribute.name.max' => 'The Name Of Attribute Is Too Long',
 
     //================================================================================
-    // ATTRIBUTES=====================================================================
+    // ATTRIBUTE VALUES===============================================================
     //================================================================================
     'attribute.value.name.required' => 'The Name Of Attribute Value Is Required',
     'attribute.value.name.max' => 'The Name Of Attribute Value Is Too Long',
