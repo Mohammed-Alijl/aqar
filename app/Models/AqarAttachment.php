@@ -5,21 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Attribute extends Model
+class AqarAttachment extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-      'name'
+      'aqar_id',
+      'path',
     ];
 
     //===============================================================
     //========================== RELATIONSHIPS ======================
     //===============================================================
-    public function values(){
-        return $this->hasMany(AttributeValue::class);
-    }
-
-    public function aqars(){
-        return $this->belongsToMany(Aqar::class, 'attribute_aqar');
+    public function aqar(){
+        return $this->belongsTo(Aqar::class);
     }
 }

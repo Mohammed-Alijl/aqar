@@ -19,4 +19,8 @@ class AttributeValue extends Model
     public function attribute(){
         return $this->belongsTo(Attribute::class);
     }
+
+    public function aqars(){
+        return $this->belongsToMany(Aqar::class, 'attribute_aqar');
+    }
 }
