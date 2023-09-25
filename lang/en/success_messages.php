@@ -30,4 +30,11 @@ return [
     'attribute.value.edit.success' => 'Attribute Value Was Edited Successfully',
     'attribute.value.delete.success' => 'Attribute Value Was Deleted Successfully',
 
+    //=============================================================================================
+    // AQARS ======================================================================================
+    //=============================================================================================
+    'aqar.add.success' => 'Aqar Value Was Added Successfully',
+    'aqar.edit.success' => 'Aqar Value Was Edited Successfully',
+    'aqar.delete.success' => 'Aqar Value Was Deleted Successfully',
+
 ];

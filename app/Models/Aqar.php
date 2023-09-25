@@ -14,6 +14,7 @@ class Aqar extends Model
         'description',
         'latitude',
         'longitude',
+        'zone_id'
     ];
 
 
@@ -38,5 +39,9 @@ class Aqar extends Model
     public function related()
     {
         return $this->belongsToMany(Aqar::class, 'related_aqar');
+    }
+
+    public function zone(){
+        return $this->belongsTo(Zone::class);
     }
 }

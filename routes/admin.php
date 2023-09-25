@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AqarController;
 use App\Http\Controllers\Admin\AttributeValueController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -38,6 +39,9 @@ Route::prefix('admin')->group(function () {
 
         //Attribute Value
         Route::resource('attribute/values',AttributeValueController::class)->except(['index','show','create','edit']);
+
+        //Attribute Value
+        Route::resource('aqars',AqarController::class);
 
     });
 

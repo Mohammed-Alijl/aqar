@@ -19,4 +19,8 @@ class Zone extends Model
     public function country(){
         return $this->belongsTo(Country::class);
     }
+
+    public function aqars(){
+        return $this->hasMany(Aqar::class);
+    }
 }

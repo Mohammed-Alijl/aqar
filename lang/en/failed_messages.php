@@ -30,4 +30,30 @@ return [
     'attribute.value.name.required' => 'The Name Of Attribute Value Is Required',
     'attribute.value.name.max' => 'The Name Of Attribute Value Is Too Long',
 
+    //================================================================================
+    // AQARS =========================================================================
+    //================================================================================
+    'aqar.title.required' => 'The Aqar Title Is Required',
+    'aqar.title.max' => 'Aqar Title Is Too Long',
+    'aqar.description.required' => 'Aqar Description Can Not Be Empty',
+    'aqar.zone_id.required' => 'Please Select The Zone From The Selected Box',
+    'aqar.zone_id.integer' => 'Please Select The Zone From The Selected Box',
+    'aqar.zone_id.exists' => 'Please Select The Zone From The Selected Box',
+    'aqar.latitude.required' => 'Latitude Is Required',
+    'aqar.latitude.numeric' => 'Please Enter A Valid Latitude',
+    'aqar.longitude.required' => 'Longitude Is Required',
+    'aqar.longitude.numeric' => 'Please Enter A Valid Longitude',
+    'aqar.attachments.required' => 'Please Send At Least One Attachment (Image Or Video)',
+    'aqar.attachments.array' => 'Attachments Should Be An Array',
+    'aqar.attachments.*.file' => 'Attachment Should Be Image Or Video',
+    'aqar.attachments.*.mimes' => 'Attachment Should Be Image Or Video',
+    'aqar.attributes.array' => 'Attributes Should Be An Array',
+    'aqar.attributes.*.integer' => 'Please Select A Valid Attributes',
+    'aqar.attributes.*.exists' => 'Please Select A Valid Attributes',
+    'aqar.values.array' => 'Attribute Values Should Be Array',
+    'aqar.values.*.integer' => 'Please Select A Valid Attributes Values',
+    'aqar.values.*.exists' => 'Please Select A Valid Attributes Values',
+    'aqar.related_aqars.array' => 'Related Aqars Should Be Array',
+    'aqar.related_aqars.*.integer' => 'Please Select A Valid Aqars',
+    'aqar.related_aqars.*.exists' => 'Please Select A Valid Aqars',
 ];
