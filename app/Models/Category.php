@@ -14,4 +14,11 @@ class Category extends Model
       'display_main',
       'display_order',
     ];
+
+    //===============================================================
+    //========================== RELATIONSHIPS ======================
+    //===============================================================
+    public function aqars(){
+        return $this->hasMany(Aqar::class);
+    }
 }

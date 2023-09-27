@@ -43,7 +43,7 @@
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">{{__('admin/pages/attributes.list')}}</h4>
+                        <h4 class="card-title mg-b-0">{{__('admin/pages/aqars.list')}}</h4>
                         <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
                     <p class="tx-12 tx-gray-500 mb-2">
@@ -79,7 +79,7 @@
                                             {{$aqar->title}}
                                         </a>
                                     </td>
-                                    <td>{{$aqar->zone}}</td>
+                                    <td>{{$aqar->zone->name}}</td>
                                     <td>{{$aqar->latitude}}</td>
                                     <td>{{$aqar->longitude}}</td>
                                     <td>

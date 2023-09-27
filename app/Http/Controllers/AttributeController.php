@@ -72,4 +72,8 @@ class AttributeController extends Controller
         $this->attributeRepository->delete($request->id);
         return redirect()->back()->with('delete-success',__('success_messages.attribute.delete.success'));
     }
+
+    public function getValues($id){
+        return json_decode($this->attributeRepository->find($id)->values->pluck('name','id'));
+    }
 }

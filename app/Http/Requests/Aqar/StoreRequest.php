@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'sometimes|required|string',
             'zone_id' => 'required|integer|exists:zones,id',
+            'category_id' => 'required|integer|exists:categories,id',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
             'attachments' => 'required|array',

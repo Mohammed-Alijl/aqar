@@ -22,10 +22,11 @@ class AqarRepository implements BasicRepositoryInterface
     public function create($request)
     {
         $aqar = new Aqar();
-        $aqar->titile = $request->titile;
+        $aqar->title = $request->title;
         if ($request->filled('description'))
             $aqar->description = $request->description;
         $aqar->zone_id = $request->zone_id;
+        $aqar->category_id = $request->category_id;
         $aqar->latitude = $request->latitude;
         $aqar->longitude = $request->longitude;
         $aqar->save();
@@ -38,11 +39,11 @@ class AqarRepository implements BasicRepositoryInterface
             $attachment->save();
         }
 
-        if ($request->fiiled('attributes'))
-            $aqar->attributes()->attach($request->attributes);
-        if ($request->fiiled('values'))
+        if ($request->filled('attributes'))
+            $aqar->attributes()->attach($request->input('attributes'));
+        if ($request->filled('values'))
             $aqar->attributeValues()->attach($request->values);
-        if ($request->fiiled('related_aqars'))
+        if ($request->filled('related_aqars'))
             $aqar->related()->attach($request->related_aqars);
     }
 
@@ -55,6 +56,7 @@ class AqarRepository implements BasicRepositoryInterface
         else
             $aqar->description = null;
         $aqar->zone_id = $request->zone_id;
+        $aqar->category_id = $request->category_id;
         $aqar->latitude = $request->latitude;
         $aqar->longitude = $request->longitude;
         $aqar->save();

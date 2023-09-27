@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('attribute_value_aqar', function (Blueprint $table) {
             $table->foreignId('aqar_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('zone_id')->constrained();
             $table->foreignId('attribute_value_id')->constrained('attribute_values')->cascadeOnDelete()->cascadeOnUpdate();
             $table->primary(['aqar_id','attribute_value_id']);
         });

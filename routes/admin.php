@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
 
         //Attribute
         Route::resource('attributes',AttributeController::class)->except(['create','edit']);
+        Route::get('attribute-values/{attributeId}',[AttributeController::class,'getValues']);
 
         //Attribute Value
         Route::resource('attribute/values',AttributeValueController::class)->except(['index','show','create','edit']);

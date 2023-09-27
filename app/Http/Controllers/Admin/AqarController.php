@@ -6,12 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Aqar\StoreRequest;
 use App\Http\Requests\Aqar\UpdateRequest;
 use App\Repositories\AqarRepository;
+use App\Repositories\AttributeRepository;
+use App\Repositories\CategoryRepository;
 use App\Repositories\ZoneRepository;
 use Illuminate\Http\Request;
 
 class AqarController extends Controller
 {
-    public function __construct(private AqarRepository $aqarRepository, private ZoneRepository $zoneRepository)
+    public function __construct(private AqarRepository $aqarRepository,
+                                private ZoneRepository $zoneRepository,
+                                private AttributeRepository $attributeRepository,
+                                private CategoryRepository $categoryRepository,
+    )
     {
     }
 
@@ -30,7 +36,10 @@ class AqarController extends Controller
     public function create()
     {
         $zones = $this->zoneRepository->getAll();
-        return view('admin.aqar.create',compact('zones'));
+        $attributes = $this->attributeRepository->getAll();
+        $aqars = $this->aqarRepository->getAll();
+        $categories = $this->categoryRepository->getAll();
+        return view('admin.aqar.create',compact('zones','attributes','aqars','categories'));
     }
 
     /**
@@ -58,7 +67,10 @@ class AqarController extends Controller
     {
         $aqar = $this->aqarRepository->find($id);
         $zones = $this->zoneRepository->getAll();
-        return view('admin.aqar.edit',compact('zones','aqar'));
+        $attributes = $this->attributeRepository->getAll();
+        $aqars = $this->aqarRepository->getAll();
+        $categories = $this->categoryRepository->getAll();
+        return view('admin.aqar.edit',compact('zones','aqar','attributes','aqars','categories'));
     }
 
     /**

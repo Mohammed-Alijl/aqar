@@ -14,7 +14,8 @@ class Aqar extends Model
         'description',
         'latitude',
         'longitude',
-        'zone_id'
+        'zone_id',
+        'category_id'
     ];
 
 
@@ -43,5 +44,9 @@ class Aqar extends Model
 
     public function zone(){
         return $this->belongsTo(Zone::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }
