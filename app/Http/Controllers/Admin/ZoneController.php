@@ -19,7 +19,7 @@ class ZoneController extends Controller
     public function index()
     {
         $zones = $this->zoneRepository->getAll();
-        return view('admin.zone.index',compact('zones'));
+        return view('admin.zone.index', compact('zones'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ZoneController extends Controller
     public function store(ZoneRequest $request)
     {
         $this->zoneRepository->create($request);
-        return redirect()->back()->with('add-success',__('success_messages.zone.add.success'));
+        return redirect()->back()->with('add-success', __('success_messages.zone.add.success'));
     }
 
     /**
@@ -60,8 +60,8 @@ class ZoneController extends Controller
      */
     public function update(Request $request)
     {
-        $this->zoneRepository->update($request,$request->id);
-        return redirect()->back()->with('edit-success',__('success_messages.zone.edit.success'));
+        $this->zoneRepository->update($request, $request->id);
+        return redirect()->back()->with('edit-success', __('success_messages.zone.edit.success'));
     }
 
     /**
@@ -69,7 +69,11 @@ class ZoneController extends Controller
      */
     public function destroy(Request $request)
     {
+        $zone = $this->zoneRepository->find($request->id);
+        if ($zone->aqars->count() > 0) {
+            return redirect()->back()->with('delete-failed', __('failed_messages.zone.can.not.delete'));
+        }
         $this->zoneRepository->delete($request->id);
-        return redirect()->back()->with('delete-success',__('success_messages.zone.delete.success'));
+        return redirect()->back()->with('delete-success', __('success_messages.zone.delete.success'));
     }
 }

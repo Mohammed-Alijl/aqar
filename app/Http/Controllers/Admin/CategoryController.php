@@ -69,7 +69,10 @@ class CategoryController extends Controller
      */
     public function destroy(Request $request)
     {
-        //You Should Edit This To Prevent Delete If The Category Has Any Aqar
+        $category = $this->categoryRepository->find($request->id);
+        if ($category->aqars->count() > 0) {
+            return redirect()->back()->with('delete-failed', __('failed_messages.category.can.not.delete'));
+        }
         $this->categoryRepository->delete($request->id);
         return redirect()->back()->with('delete-success',__('success_messages.category.delete.success'));
     }

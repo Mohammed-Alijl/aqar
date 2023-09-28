@@ -11,12 +11,14 @@ return [
     'category.display_main.boolean' => 'Please Select If The Category Will Be In The Home Page Or Not',
     'category.display_order.integer' => 'The Display Order Should Be Integer Only',
     'display_order.required_if' => 'When The Display In Home Page Is True You Should Enter The Display Order',
+    'category.can.not.delete' => 'This Category Is already In Use',
 
     //================================================================================
     // ZONES==========================================================================
     //================================================================================
     'zone.name.required' => 'The Name Of Zone Is Required',
     'zone.name.max' => 'The Name Of Zone Is Too Long',
+    'zone.can.not.delete' => 'This Zone Is already In Use',
 
     //================================================================================
     // ATTRIBUTES=====================================================================
