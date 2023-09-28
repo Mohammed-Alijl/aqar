@@ -60,7 +60,9 @@
                             <tr>
                                 <th class="border-bottom-0">#</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.title')}}</th>
+                                <th class="border-bottom-0">{{__('admin/pages/aqars.category')}}</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.zone')}}</th>
+                                <th class="border-bottom-0">{{__('admin/pages/aqars.price')}}</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.latitude')}}</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.longitude')}}</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.action')}}</th>
@@ -79,11 +81,13 @@
                                             {{$aqar->title}}
                                         </a>
                                     </td>
+                                    <td>{{$aqar->category->name}}</td>
                                     <td>{{$aqar->zone->name}}</td>
+                                    <td>{{$aqar->price}}</td>
                                     <td>{{$aqar->latitude}}</td>
                                     <td>{{$aqar->longitude}}</td>
                                     <td>
-                                        <a href="{{route('aqars.edit',$aqar->id)}}" class="modal-effect btn btn-sm btn-info" title="{{__('admin/pages/aqars.edit')}}"><i
+                                        <a href="{{route('aqars.edit',$aqar->id)}}" class="btn btn-sm btn-info" title="{{__('admin/pages/aqars.edit')}}"><i
                                                 class="las la-pen"></i></a>
                                         <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
                                            data-id="{{ $aqar->id }}"

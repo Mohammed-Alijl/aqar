@@ -124,6 +124,14 @@
                                 </div>
                                 <div class="control-group form-group">
                                     <label class="form-label"
+                                           for="price">{{__('admin/pages/aqars.price')}} <span
+                                            class="tx-danger">*</span></label>
+                                    <input class="form-control" type="text" name="price" id="price" required maxlength="50"
+                                           data-parsley-required-message="{{__('admin/pages/aqars.price.required')}}"
+                                    placeholder="{{__('admin/pages/aqars.price')}}">
+                                </div>
+                                <div class="control-group form-group">
+                                    <label class="form-label"
                                            for="description">{{__('admin/pages/aqars.description')}}</label>
                                     <textarea class="form-control" name="description" id="description"
                                               rows="5"></textarea>
@@ -150,6 +158,29 @@
                                             <option value="{{$attribute->id}}">{{$attribute->name}}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </section>
+                            <h3>{{__('admin/pages/aqars.contact.us')}}</h3>
+                            <section>
+                                <div class="control-group form-group">
+                                    <label class="form-label"
+                                           for="mobile_number">{{__('admin/pages/aqars.mobile_number')}}</label>
+                                    <input class="form-control" type="text" name="mobile_number" id="mobile_number" maxlength="15"
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                           placeholder="{{__('admin/pages/aqars.mobile_number')}}">
+                                </div>
+                                <div class="control-group form-group">
+                                    <label class="form-label"
+                                           for="whatsapp_number">{{__('admin/pages/aqars.whatsapp_number')}}</label>
+                                    <input class="form-control" type="text" name="whatsapp_number" id="whatsapp_number" maxlength="15"
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                           placeholder="{{__('admin/pages/aqars.whatsapp_number')}}">
+                                </div>
+                                <div class="control-group form-group">
+                                    <label class="form-label"
+                                           for="email">{{__('admin/pages/aqars.email')}}</label>
+                                    <input class="form-control" type="email" name="email" id="email"
+                                           placeholder="{{__('admin/pages/aqars.email')}}">
                                 </div>
                             </section>
                             <h3>{{__('admin/pages/aqars.related.aqars')}}</h3>
@@ -190,13 +221,31 @@
                 center: {lat: 23.8859, lng: 45.0792},
                 zoom: 8
             });
+            var outerCircleMarker = new google.maps.Marker({
+                map: map,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    fillColor: 'black',
+                    strokeColor: 'black',
+                    strokeOpacity: 0.1,
+                    scale: 35
+                }
+            });
 
             var marker = new google.maps.Marker({
                 map: map,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    fillColor: 'white',
+                    strokeColor: 'black',
+                    strokeWeight: 8,
+                    scale: 8
+                }
             });
 
             map.addListener('click', function (event) {
                 marker.setPosition(event.latLng);
+                outerCircleMarker.setPosition(event.latLng);
                 document.getElementById('latitude').value = event.latLng.lat();
                 document.getElementById('longitude').value = event.latLng.lng();
             });

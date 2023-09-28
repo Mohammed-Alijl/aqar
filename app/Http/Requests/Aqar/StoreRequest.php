@@ -36,6 +36,10 @@ class StoreRequest extends FormRequest
             'values.*' => 'integer|exists:attribute_values,id',
             'related_aqars' => 'nullable|array|unique_values',
             'related_aqars.*' => 'integer|exists:aqars,id',
+            'price' => 'required|string|max:255',
+            'email' => 'nullable|email|string|max:255',
+            'mobile_number' => 'nullable|numeric',
+            'whatsapp_number' => 'nullable|numeric',
         ];
     }
 

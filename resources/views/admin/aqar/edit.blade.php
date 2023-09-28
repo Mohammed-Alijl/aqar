@@ -110,13 +110,18 @@
                                 </div>
                                 <div class="control-group form-group">
                                     <label class="form-label"
+                                           for="price">{{__('admin/pages/aqars.price')}} <span
+                                            class="tx-danger">*</span></label>
+                                    <input class="form-control" type="text" name="price" id="price" required maxlength="50" value="{{$aqar->price}}"
+                                           data-parsley-required-message="{{__('admin/pages/aqars.price.required')}}"
+                                           placeholder="{{__('admin/pages/aqars.price')}}">
+                                </div>
+                                <div class="control-group form-group">
+                                    <label class="form-label"
                                            for="description">{{__('admin/pages/aqars.description')}}</label>
                                     <textarea class="form-control" name="description" id="description"
                                               rows="5">{{$aqar->description}}</textarea>
                                 </div>
-                                {{--                                <input id="input-b3" name="attachments[]" type="file" class="file" multiple required--}}
-                                {{--                                       data-show-upload="false" data-show-caption="true"--}}
-                                {{--                                       data-msg-placeholder="{{__('admin/pages/aqars.add.images.videos')}}">--}}
                                 <input id="input-pd" data-show-upload="false" name="images[]" type="file" multiple>
                             </section>
                             <h3>{{__('admin/pages/aqars.location')}}</h3>
@@ -158,6 +163,30 @@
                                         </div>
                                     </div>
                                 @endforeach
+                            </section>
+                            <h3>{{__('admin/pages/aqars.contact.us')}}</h3>
+                            <section>
+                                <div class="control-group form-group">
+                                    <label class="form-label"
+                                           for="mobile_number">{{__('admin/pages/aqars.mobile_number')}}</label>
+                                    <input class="form-control" type="text" name="mobile_number" id="mobile_number" maxlength="15" value="{{$aqar->mobile_number}}"
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                           placeholder="{{__('admin/pages/aqars.mobile_number')}}">
+                                </div>
+                                <div class="control-group form-group">
+                                    <label class="form-label"
+                                           for="whatsapp_number">{{__('admin/pages/aqars.whatsapp_number')}}</label>
+                                    <input class="form-control" type="text" name="whatsapp_number" id="whatsapp_number" maxlength="15"
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                           value="{{$aqar->whatsapp_number}}"
+                                           placeholder="{{__('admin/pages/aqars.whatsapp_number')}}">
+                                </div>
+                                <div class="control-group form-group">
+                                    <label class="form-label"
+                                           for="email">{{__('admin/pages/aqars.email')}}</label>
+                                    <input class="form-control" type="email" name="email" id="email" value="{{$aqar->email}}"
+                                           placeholder="{{__('admin/pages/aqars.email')}}">
+                                </div>
                             </section>
                             <h3>{{__('admin/pages/aqars.related.aqars')}}</h3>
                             <section>

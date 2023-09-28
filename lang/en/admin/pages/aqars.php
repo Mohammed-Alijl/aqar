@@ -35,4 +35,10 @@ return [
   'previous' => 'Previous',
   'edit.aqar.from.here' => 'Edit The Aqar From Here!',
   'edit.aqar' => 'Edit Aqar',
+  'price' => 'Price',
+  'price.required' => 'Price Is Required',
+  'contact.us' => 'Contact Us',
+  'whatsapp_number' => 'Whatsapp Number',
+  'mobile_number' => 'Mobile Number',
+  'email' => 'Email',
 ];

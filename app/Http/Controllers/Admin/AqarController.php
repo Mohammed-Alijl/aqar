@@ -85,9 +85,9 @@ class AqarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        $this->aqarRepository->delete($id);
+        $this->aqarRepository->delete($request->id);
         return redirect()->route('aqars.index')->with('delete-success',__('success_messages.aqar.delete.success'));
     }
 }

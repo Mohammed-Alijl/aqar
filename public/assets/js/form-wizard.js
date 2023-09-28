@@ -52,15 +52,38 @@ $(function() {
             if (currentIndex < newIndex) {
                 // Step 1 form validation
                 if (currentIndex === 0) {
-return true;
+                    let title = $('#title').parsley();
+                    let zone = $('#zone').parsley();
+                    let attachment = $('#input-b3').parsley();
+                    let price = $('#price').parsley();
+                    if (title.isValid() && zone.isValid() && attachment.isValid() && price.isValid()) {
+                        return true;
+                    } else {
+                        title.validate();
+                        zone.validate();
+                        attachment.validate();
+                        price.validate();
+                    }
                 }
                 // Step 2 form validation
                 if (currentIndex === 1) {
-                    return true;
+                    let latitude = document.getElementById('latitude').value;
+                    let longitude = document.getElementById('longitude').value;
+                    return !!(latitude && longitude);
                 }
                 // Step 3 form validation
                 if (currentIndex === 2) {
                     return true;
+                }
+
+                // Step 4 form validation
+                if (currentIndex === 3) {
+                    let email = $('#email').parsley();
+                    if (email.isValid()) {
+                        return true;
+                    } else {
+                        email.validate();
+                    }
                 }
                 // Always allow step back to the previous step even if the current step is not valid.
             } else {
@@ -87,11 +110,13 @@ return true;
                 if (currentIndex === 0) {
                     let title = $('#title').parsley();
                     let zone = $('#zone').parsley();
-                    if (title.isValid() && zone.isValid()) {
+                    let price = $('#price').parsley();
+                    if (title.isValid() && zone.isValid() && price.isValid()) {
                         return true;
                     } else {
                         title.validate();
                         zone.validate();
+                        price.validate();
                     }
                 }
                 // Step 2 form validation
@@ -100,7 +125,18 @@ return true;
                 }
                 // Step 3 form validation
                 if (currentIndex === 2) {
-                    return true;
+                    let latitude = document.getElementById('latitude').value;
+                    let longitude = document.getElementById('longitude').value;
+                    return !!(latitude && longitude);
+                }
+                // Step 4 form validation
+                if (currentIndex === 3) {
+                    let email = $('#email').parsley();
+                    if (email.isValid()) {
+                        return true;
+                    } else {
+                        email.validate();
+                    }
                 }
                 // Always allow step back to the previous step even if the current step is not valid.
             } else {

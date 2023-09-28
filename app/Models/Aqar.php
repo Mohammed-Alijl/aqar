@@ -15,7 +15,12 @@ class Aqar extends Model
         'latitude',
         'longitude',
         'zone_id',
-        'category_id'
+        'category_id',
+        'price',
+        'watches',
+        'whatsapp_number',
+        'mobile_number',
+        'email'
     ];
 
 

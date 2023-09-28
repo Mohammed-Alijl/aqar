@@ -27,8 +27,15 @@ class AqarRepository implements BasicRepositoryInterface
             $aqar->description = $request->description;
         $aqar->zone_id = $request->zone_id;
         $aqar->category_id = $request->category_id;
+        $aqar->price = $request->price;
         $aqar->latitude = $request->latitude;
         $aqar->longitude = $request->longitude;
+        if ($request->filled('email'))
+            $aqar->email = $request->email;
+        if ($request->filled('mobile_number'))
+            $aqar->mobile_number = $request->mobile_number;
+        if ($request->filled('whatsapp_number'))
+            $aqar->whatsapp_number = $request->whatsapp_number;
         $aqar->save();
 
         foreach ($request->file('attachments') as $attachment) {
@@ -57,8 +64,15 @@ class AqarRepository implements BasicRepositoryInterface
             $aqar->description = null;
         $aqar->zone_id = $request->zone_id;
         $aqar->category_id = $request->category_id;
+        $aqar->price = $request->price;
         $aqar->latitude = $request->latitude;
         $aqar->longitude = $request->longitude;
+        if ($request->filled('email'))
+            $aqar->email = $request->email;
+        if ($request->filled('mobile_number'))
+            $aqar->mobile_number = $request->mobile_number;
+        if ($request->filled('whatsapp_number'))
+            $aqar->whatsapp_number = $request->whatsapp_number;
         $aqar->save();
 
 
