@@ -196,7 +196,9 @@
                 </form>
                 <div id="translations"
                      data-next="{{__('admin/pages/aqars.next')}}"
-                     data-previous="{{__('admin/pages/aqars.previous')}}">
+                     data-previous="{{__('admin/pages/aqars.previous')}}"
+                     data-finish="{{__('admin/pages/aqars.finish')}}"
+                >
                 </div>
             </div>
         </div>

@@ -96,7 +96,8 @@ $(function () {
         },
         labels: {
             next: nextLabel,
-            previous: previousLabel
+            previous: previousLabel,
+            finish: finishLabel
         }
     });
     $('#edit-aqar').steps({
@@ -149,7 +150,8 @@ $(function () {
         },
         labels: {
             next: nextLabel,
-            previous: previousLabel
+            previous: previousLabel,
+            finish: finishLabel
         }
     });
     $('#show-aqar').steps({
