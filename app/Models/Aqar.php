@@ -39,7 +39,7 @@ class Aqar extends Model
 
     public function related()
     {
-        return $this->belongsToMany(Aqar::class, 'related_aqar');
+        return $this->belongsToMany(Aqar::class, 'related_aqar','related_aqar_id');
     }
 
     public function zone(){

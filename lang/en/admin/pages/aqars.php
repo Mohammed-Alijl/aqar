@@ -33,4 +33,6 @@ return [
   'category' => 'Category',
   'next' => 'Next',
   'previous' => 'Previous',
+  'edit.aqar.from.here' => 'Edit The Aqar From Here!',
+  'edit.aqar' => 'Edit Aqar',
 ];

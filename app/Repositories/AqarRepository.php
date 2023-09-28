@@ -44,13 +44,13 @@ class AqarRepository implements BasicRepositoryInterface
         if ($request->filled('values'))
             $aqar->attributeValues()->attach($request->values);
         if ($request->filled('related_aqars'))
-            $aqar->related()->attach($request->related_aqars);
+            $aqar->related()->sync($request->input('related_aqars'));
     }
 
     public function update($request, $id)
     {
         $aqar = $this->find($id);
-        $aqar->titile = $request->titile;
+        $aqar->title = $request->title;
         if ($request->filled('description'))
             $aqar->description = $request->description;
         else
@@ -77,7 +77,7 @@ class AqarRepository implements BasicRepositoryInterface
         }
 
         if ($request->filled('attributes'))
-            $aqar->attributes()->sync($request->attributes);
+            $aqar->attributes()->sync($request->input('attributes'));
         else
             $aqar->attributes()->detach();
 
@@ -87,7 +87,7 @@ class AqarRepository implements BasicRepositoryInterface
             $aqar->attributeValues()->detach();
 
         if ($request->filled('related_aqars'))
-            $aqar->related()->sync($request->related_aqars);
+            $aqar->related()->sync($request->input('related_aqars'));
         else
             $aqar->related()->detach();
     }
