@@ -41,4 +41,7 @@ return [
   'whatsapp_number' => 'Whatsapp Number',
   'mobile_number' => 'Mobile Number',
   'email' => 'Email',
+  'show.aqar' => 'Display Aqar',
+  'show.aqar.from.here' => 'Display All Aqar Details From Here!',
+  'finish' => 'Finish',
 ];
