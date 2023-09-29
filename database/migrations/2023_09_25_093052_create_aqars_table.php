@@ -20,7 +20,7 @@ return new class extends Migration
             $table->double('latitude');
             $table->double('longitude');
             $table->integer('watches')->default(0);
-            $table->string('price');
+            $table->double('price')->default(0);
             $table->string('email')->nullable();
             $table->string('mobile_number')->nullable();
             $table->string('whatsapp_number')->nullable();

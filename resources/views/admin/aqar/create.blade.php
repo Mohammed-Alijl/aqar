@@ -127,6 +127,7 @@
                                            for="price">{{__('admin/pages/aqars.price')}} <span
                                             class="tx-danger">*</span></label>
                                     <input class="form-control" type="text" name="price" id="price" required maxlength="50"
+                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                            data-parsley-required-message="{{__('admin/pages/aqars.price.required')}}"
                                     placeholder="{{__('admin/pages/aqars.price')}}">
                                 </div>
