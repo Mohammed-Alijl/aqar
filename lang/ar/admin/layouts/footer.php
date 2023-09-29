@@ -1,6 +1,6 @@
 <?php
 
 return [
-  'dalil' => 'دليل',
+  'dalil' => 'دليلcom',
   'copyright' => 'جميع الحقوق محفوظة © ' . date('Y'),
 ];
