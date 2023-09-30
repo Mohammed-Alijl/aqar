@@ -50,7 +50,7 @@ class HomeController extends Controller
             });
             $results = $query->get();
         }
-        return $results;
+        return view('frontend.search-result',compact('results'));
     }
 
     public function filter(Request $request)
@@ -98,7 +98,7 @@ class HomeController extends Controller
         }
 
         $results = $query->get();
-        return $results;
+        return view('frontend.search-result',compact('results'));
     }
 
 }
