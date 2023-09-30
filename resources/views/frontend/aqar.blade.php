@@ -40,7 +40,7 @@
                         <svg>
                             <use href="{{asset('frontend/icons.svg#location')}}"></use>
                         </svg>
-                        السعودية - {{$aqar->zone->name}}
+                        {{\App\Models\Country::first()->name . ' ' . $aqar->city->name}}
                     </p>
 
                     <p class="m-0">

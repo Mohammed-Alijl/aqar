@@ -296,7 +296,7 @@
                                         <svg>
                                             <use href="{{asset('frontend/icons.svg#location')}}"></use>
                                         </svg>
-                                        {{"السعودية - " . $aqar->zone->name}}
+                                        {{\App\Models\Country::first()->name . " - " . $aqar->city->name}}
                                     </p>
                                     <a href="{{route('aqar',$aqar->id)}}" class="card-title">
                                         <h5 class="mb-3">{{$aqar->title}}</h5>
