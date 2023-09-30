@@ -11,7 +11,8 @@
                 <form action="{{ route('filter_results') }}" class="search-form" method="GET">
                     <div class="d-flex search-input-btn w-100">
                         <div class="flex-grow-1">
-                            <input type="text" class="search-field" placeholder="بحث..." name="search" value="" required autocomplete="off">
+                            <input type="text" class="search-field" placeholder="بحث..." name="search" value="" required
+                                   autocomplete="off">
                         </div>
                         <div>
                             <button class="btn" type="submit">
@@ -115,12 +116,12 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <h6>
-                                                        الموقع
+                                                        المنطقة
                                                     </h6>
                                                     <div>
                                                         @foreach($zones as $zone)
                                                             <label class="custom-radio">
-                                                                <input type="checkbox" name="zones[]"
+                                                                <input type="checkbox" name="zones[]" class="zone-all"
                                                                        value="{{$zone->id}}">
                                                                 <span class="check-btn">
                                                         <span class="check-icon">
@@ -132,13 +133,22 @@
                                                         @endforeach
                                                     </div>
                                                 </div>
+
+                                                <div class="mb-3" id="city-container-all" style="display: none">
+                                                    <h6>
+                                                        المدينة
+                                                    </h6>
+                                                    <div id="city-container-all-body">
+                                                    </div>
+                                                </div>
                                                 <div class="mb-3">
                                                     <h6>
                                                         السعر
                                                     </h6>
                                                     <div>
                                                         <label class="custom-radio">
-                                                            <input type="checkbox" name="prices[]" value="{{$minPrice}}-{{$midPoint}}">
+                                                            <input type="checkbox" name="prices[]"
+                                                                   value="{{$minPrice}}-{{$midPoint}}">
                                                             <span class="check-btn">
                                                         <span class="check-icon">
                                                             <i class="fa-solid fa-check"></i>
@@ -147,7 +157,8 @@
                                                     </span>
                                                         </label>
                                                         <label class="custom-radio">
-                                                            <input type="checkbox" name="prices[]" value="{{$midPoint}}-{{$maxPrice}}">
+                                                            <input type="checkbox" name="prices[]"
+                                                                   value="{{$midPoint}}-{{$maxPrice}}">
                                                             <span class="check-btn">
                                                         <span class="check-icon">
                                                             <i class="fa-solid fa-check"></i>
@@ -181,7 +192,7 @@
                                             <div class="tab-pane fade" id="location" role="tabpanel"
                                                  aria-labelledby="location-tab">
                                                 <h6>
-                                                    الموقع
+                                                    المنطقة
                                                 </h6>
                                                 <div>
                                                     @foreach($zones as $zone)
@@ -197,6 +208,14 @@
                                                     @endforeach
                                                 </div>
                                             </div>
+                                            <div class="tab-pane fade" id="location" role="tabpanel"
+                                                 aria-labelledby="location-tab">
+                                                <h6>
+                                                    المدينة
+                                                </h6>
+                                                <div>
+                                                </div>
+                                            </div>
                                             <div class="tab-pane fade" id="price" role="tabpanel"
                                                  aria-labelledby="price-tab">
                                                 <h6>
@@ -204,40 +223,24 @@
                                                 </h6>
                                                 <div>
                                                     <label class="custom-radio">
-                                                        <input type="checkbox" name="prices[]" value="1000-3000">
+                                                        <input type="checkbox" name="prices[]"
+                                                               value="{{$minPrice}}-{{$midPoint}}">
                                                         <span class="check-btn">
-                                                    <span class="check-icon">
-                                                        <i class="fa-solid fa-check"></i>
+                                                        <span class="check-icon">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        <span> {{$minPrice}} ريال - {{$midPoint}} ريال </span>
                                                     </span>
-                                                    <span> 1000 ريال - 3000 ريال </span>
-                                                </span>
                                                     </label>
                                                     <label class="custom-radio">
-                                                        <input type="checkbox" name="prices[]" value="4000-6000">
+                                                        <input type="checkbox" name="prices[]"
+                                                               value="{{$midPoint}}-{{$maxPrice}}">
                                                         <span class="check-btn">
-                                                    <span class="check-icon">
-                                                        <i class="fa-solid fa-check"></i>
+                                                        <span class="check-icon">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        <span> {{$midPoint}} ريال - {{$maxPrice}} ريال </span>
                                                     </span>
-                                                    <span> 4000 ريال - 6000 ريال </span>
-                                                </span>
-                                                    </label>
-                                                    <label class="custom-radio">
-                                                        <input type="checkbox" name="prices[]" value="7000-8000">
-                                                        <span class="check-btn">
-                                                    <span class="check-icon">
-                                                        <i class="fa-solid fa-check"></i>
-                                                    </span>
-                                                    <span> 7000 ريال - 8000 ريال </span>
-                                                </span>
-                                                    </label>
-                                                    <label class="custom-radio">
-                                                        <input type="checkbox" name="prices[]" value="9000-10000">
-                                                        <span class="check-btn">
-                                                    <span class="check-icon">
-                                                        <i class="fa-solid fa-check"></i>
-                                                    </span>
-                                                    <span> 9000 ريال - 10000 ريال </span>
-                                                </span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -461,10 +464,63 @@
                             console.log(data)
                         }
                     });
-                }else {
+                } else {
                     // Here Should Clear The List Because There Is No Any Result
                 }
             });
+        });
+
+
+        // Ajax Code To Get Cities Based On The Zone
+        $(document).ready(function () {
+            var zoneCities = {};
+
+            $('.zone-all').on('change', function () {
+                if ($(this).is(':checked')) {
+                    var zoneId = $(this).val();
+
+                    $.ajax({
+                        url: "{{ URL::to('admin/zone-cities') }}/" + zoneId,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            zoneCities[zoneId] = data;
+                            displayCities(zoneId);
+                        },
+                    });
+                } else {
+                    var zoneId = $(this).val();
+
+                    delete zoneCities[zoneId];
+
+                    displayCities(zoneId);
+                }
+            });
+
+            function displayCities(zoneId) {
+                var cityContainer = $('#city-container-all-body');
+
+                cityContainer.empty();
+
+                $.each(zoneCities, function (key, cities) {
+                    $.each(cities, function (cityId, cityName) {
+                        cityContainer.append(`
+                        <label class="custom-radio">
+                            <input type="checkbox" name="cities[]" value="${cityId}">
+                            <span class="check-btn">
+                                <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                                <span> ${cityName} </span>
+                            </span>
+                        </label>
+                    `);
+                    });
+                });
+                if ($.isEmptyObject(zoneCities)) {
+                    $('#city-container-all').hide();
+                } else {
+                    $('#city-container-all').show();
+                }
+            }
         });
     </script>
 @endsection

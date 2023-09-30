@@ -36,7 +36,6 @@ class HomeController extends Controller
             ->pluck('id', 'title');
 
         return json_decode($results);
-//        return view('search_suggestions', ['suggestions' => $results]);
     }
 
     public function search(Request $request)
@@ -59,6 +58,7 @@ class HomeController extends Controller
         $search = $request->input('search');
         $categories = $request->input('categories');
         $zones = $request->input('zones');
+        $cities = $request->input('cities');
         $prices = $request->input('prices');
 
         $query = Aqar::query();
@@ -75,7 +75,15 @@ class HomeController extends Controller
         }
 
         if (!empty($zones)) {
-            $query->whereIn('zone_id', $zones);
+            $query->whereIn('city_id', function ($subQuery) use ($zones) {
+                $subQuery->select('id')
+                    ->from('cities')
+                    ->whereIn('zone_id', $zones);
+            });
+        }
+
+        if (!empty($cities)) {
+            $query->whereIn('city_id', $cities);
         }
 
         if (!empty($prices)) {
@@ -91,7 +99,6 @@ class HomeController extends Controller
 
         $results = $query->get();
         return $results;
-
     }
 
 }
