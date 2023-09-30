@@ -15,7 +15,7 @@ class CountrySeeder extends Seeder
     {
         $country = new Country();
         $country->setTranslation('name','en', 'Saudi Arabia');
-        $country->setTranslation('name','ar', 'المملكة العربية السعودية');
+        $country->setTranslation('name','ar', 'السعودية');
         $country->save();
     }
 }

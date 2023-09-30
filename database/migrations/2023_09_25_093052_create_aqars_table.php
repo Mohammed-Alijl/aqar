@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('aqars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('zone_id')->constrained();
+            $table->foreignId('city_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->string('title');
             $table->text('description')->nullable();

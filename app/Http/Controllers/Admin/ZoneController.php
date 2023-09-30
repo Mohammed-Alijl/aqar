@@ -70,7 +70,7 @@ class ZoneController extends Controller
     public function destroy(Request $request)
     {
         $zone = $this->zoneRepository->find($request->id);
-        if ($zone->aqars->count() > 0) {
+        if ($zone->cities->count() > 0) {
             return redirect()->back()->with('delete-failed', __('failed_messages.zone.can.not.delete'));
         }
         $this->zoneRepository->delete($request->id);

@@ -14,7 +14,7 @@ class Aqar extends Model
         'description',
         'latitude',
         'longitude',
-        'zone_id',
+        'city_id',
         'category_id',
         'price',
         'watches',
@@ -47,8 +47,8 @@ class Aqar extends Model
         return $this->belongsToMany(Aqar::class, 'related_aqar','related_aqar_id');
     }
 
-    public function zone(){
-        return $this->belongsTo(Zone::class);
+    public function city(){
+        return $this->belongsTo(City::class);
     }
 
     public function category(){
