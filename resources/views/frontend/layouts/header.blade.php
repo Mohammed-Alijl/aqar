@@ -9,13 +9,13 @@
             </div>
             <div class="menu-list">
                 <ul class="nav">
-                    <li class="nav-item active">
+                    <li class="nav-item {{request()->route()->named(['home']) ? 'active' : ''}}">
                         <a href="{{route('home')}}">
                             الرئيسية
                         </a>
                     </li>
                     @foreach(\App\Models\Category::where('display_main',1)->orderBy('display_order')->get() as $category)
-                        <li class="nav-item ">
+                        <li class="nav-item {{ request()->is('categories/' . $category->id) ? 'active' : '' }}">
                             <a href="{{route('category.show',$category->id)}}">
                                 {{$category->name}}
                             </a>
