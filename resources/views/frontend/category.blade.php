@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 @section('title','دليلcom')
 @section('content')
-    <div class="category-{{$category->id}} paddingY-section">
+    <div class="category-{{$category->id}} paddingY-section home-page">
         <div class="container">
             <div class="section-header mb-4">
                 <div class="d-flex align-items-center justify-content-start">
@@ -89,14 +89,14 @@
             $('.category-{{$category->id}} .loading').show();
             setTimeout(function () {
                 $('.category-{{$category->id}} .loading').hide();
-            }, 5000);
+            }, 3000);
             showMoreProperty++;
             setTimeout(function () {
                 $(".category-{{$category->id}} .aqar-card")
                     .hide()
                     .slice(0, showMoreProperty * 6)
                     .show();
-            }, 500)
+            }, 3500)
 
         })
 
