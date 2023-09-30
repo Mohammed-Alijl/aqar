@@ -1,13 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\AqarController;
+use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AttributeValueController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ZoneController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AttributeController;
 use Illuminate\Support\Facades\Route;
 
 /*
