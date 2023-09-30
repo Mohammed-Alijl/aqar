@@ -67,6 +67,7 @@
                     {{$aqar->description}}
                 </p>
             </div>
+            @if(count($aqar->attributes) > 0)
             <div class="details">
                 <h5>
                     التفاصيل
@@ -84,6 +85,7 @@
                 </ul>
 
             </div>
+            @endif
             @if($aqar->email || $aqar->whatsapp_number || $aqar->mobile_number)
                 <div class="contact-us paddingY-section">
                     <h4 class="mb-4">
@@ -126,43 +128,46 @@
                 </h4>
                 <div id="map"></div>
             </div>
-            <div class="more-adver paddingY-section">
-                <h4 class="mb-4">
-                    اعلانات مشابهة
-                </h4>
-                <div class="cards-list">
-                    @foreach($aqar->related as $relatedAqar)
-                        <div class="aqar-card pb-2" id='1'>
-                            <div class="aqar-card-img">
-                                <a href="{{route('aqar',$relatedAqar->id)}}">
-                                    <img
-                                        src="{{asset('storage/attachment/' . $relatedAqar->attachments->first()->path)}}"
-                                        class="card-img-top" alt="related aqar">
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <p class="location">
-                                    <svg>
-                                        <use href="{{asset('frontend/icons.svg#location')}}"></use>
-                                    </svg>
-                                    السعودية - {{$aqar->zone->name}}
-                                </p>
-                                <a href="{{route('aqar',$relatedAqar->id)}}" class="card-title">
-                                    <h5 class="mb-3">{{$aqar->title}}</h5>
-                                </a>
-                                <p class="price">
-                                    {{$aqar->price}} ريال
-                                </p>
-                                <p class="info m-0">
-                                    {{$aqar->description}}
-                                </p>
-                            </div>
+            @if(count($aqar->related) > 0)
+                <div class="more-adver paddingY-section">
+                    <h4 class="mb-4">
+                        اعلانات مشابهة
+                    </h4>
+                    <div class="cards-list">
+                        @foreach($aqar->related as $relatedAqar)
+                            <div class="aqar-card pb-2" id='1'>
+                                <div class="aqar-card-img">
+                                    <a href="{{route('aqar',$relatedAqar->id)}}">
+                                        <img
+                                            src="{{asset('storage/attachment/' . $relatedAqar->attachments->first()->path)}}"
+                                            class="card-img-top" alt="related aqar">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <p class="location">
+                                        <svg>
+                                            <use href="{{asset('frontend/icons.svg#location')}}"></use>
+                                        </svg>
+                                        السعودية - {{$aqar->zone->name}}
+                                    </p>
+                                    <a href="{{route('aqar',$relatedAqar->id)}}" class="card-title">
+                                        <h5 class="mb-3">{{$aqar->title}}</h5>
+                                    </a>
+                                    <p class="price">
+                                        {{$aqar->price}} ريال
+                                    </p>
+                                    <p class="info m-0">
+                                        {{$aqar->description}}
+                                    </p>
+                                </div>
 
-                        </div>
-                    @endforeach
+                            </div>
+                        @endforeach
 
+                    </div>
                 </div>
-            </div>
+            @endif
+
         </div>
     </div>
 @endsection
