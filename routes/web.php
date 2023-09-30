@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\AqarController;
+use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -32,6 +33,8 @@ Route::group(
     // Aqar Page
     Route::get('/aqar/{id}', [AqarController::class, 'show'])->name('aqar');
 
+    // Category Page
+    Route::get('/categories/{id}',[CategoryController::class,'show'])->name('category.show');
     require __DIR__ . '/admin.php';
 
 });

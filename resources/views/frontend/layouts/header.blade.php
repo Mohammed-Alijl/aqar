@@ -16,7 +16,7 @@
                     </li>
                     @foreach(\App\Models\Category::where('display_main',1)->orderBy('display_order')->get() as $category)
                         <li class="nav-item ">
-                            <a href="#">
+                            <a href="{{route('category.show',$category->id)}}">
                                 {{$category->name}}
                             </a>
                         </li>
