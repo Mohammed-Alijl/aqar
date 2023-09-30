@@ -33,8 +33,9 @@ Route::prefix('admin')->group(function () {
 
         //Zone
         Route::resource('zones',ZoneController::class)->except(['show','create','edit']);
+        Route::get('zone-cities/{id}',[ZoneController::class,'getCities']);
 
-        //Zone
+        //City
         Route::resource('cities',CityController::class)->except(['show','create','edit']);
 
         //Attribute

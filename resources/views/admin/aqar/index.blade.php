@@ -61,7 +61,7 @@
                                 <th class="border-bottom-0">#</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.title')}}</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.category')}}</th>
-                                <th class="border-bottom-0">{{__('admin/pages/aqars.zone')}}</th>
+                                <th class="border-bottom-0">{{__('admin/pages/aqars.city')}}</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.price')}}</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.latitude')}}</th>
                                 <th class="border-bottom-0">{{__('admin/pages/aqars.longitude')}}</th>
@@ -82,7 +82,7 @@
                                         </a>
                                     </td>
                                     <td>{{$aqar->category->name}}</td>
-                                    <td>{{$aqar->zone->name}}</td>
+                                    <td>{{$aqar->city->name}}</td>
                                     <td>{{$aqar->price}}</td>
                                     <td>{{$aqar->latitude}}</td>
                                     <td>{{$aqar->longitude}}</td>

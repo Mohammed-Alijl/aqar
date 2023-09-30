@@ -110,6 +110,16 @@
                                     </select>
                                 </div>
                                 <div class="control-group form-group">
+                                    <p class="mg-b-10">{{__('admin/pages/aqars.city')}} <span class="tx-danger">*</span>
+                                    </p>
+                                    <select class="form-control select2" name="city_id" id="city" required
+                                            data-parsley-required-message="{{__('admin/pages/aqars.city.invalid')}}">
+                                        <option disabled selected label="{{__('admin/pages/aqars.choose')}}">
+                                            {{__('admin/pages/aqars.choose')}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="control-group form-group">
                                     <p class="mg-b-10">{{__('admin/pages/aqars.category')}} <span class="tx-danger">*</span>
                                     </p>
                                     <select class="form-control select2" name="category_id" id="category" required
@@ -357,6 +367,32 @@
                 },
             });
         }
+
+
+        //Ajax Code To Get The Cities From Zone
+        $(document).ready(function() {
+            $('#zone').on('change', function() {
+                var zoneId = $(this).val();
+                if (zoneId) {
+                    $.ajax({
+                        url: "{{ URL::to('admin/zone-cities') }}/" + zoneId,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            $('#city').empty();
+                            $.each(data, function(key, value) {
+                                $('#city').append('<option value="' +
+                                    key + '">' + value + '</option>');
+                            });
+                        },
+                    });
+
+                } else {
+                    console.log('AJAX load did not work');
+                }
+            });
+
+        });
     </script>
 
 

@@ -76,4 +76,9 @@ class ZoneController extends Controller
         $this->zoneRepository->delete($request->id);
         return redirect()->back()->with('delete-success', __('success_messages.zone.delete.success'));
     }
+
+    public function getCities($id){
+        $zone = $this->zoneRepository->find($id);
+        return json_decode($zone->cities->pluck('name','id'));
+    }
 }

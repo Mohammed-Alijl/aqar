@@ -62,10 +62,17 @@
                                            data-parsley-required-message="{{__('admin/pages/aqars.title.invalid')}}">
                                 </div>
                                 <div class="control-group form-group">
-                                    <p class="mg-b-10">{{__('admin/pages/aqars.zone')}} <span class="tx-danger">*</span>
+                                    <p class="mg-b-10">{{__('admin/pages/aqars.zone')}}
                                     </p>
                                     <select class="form-control select2" name="zone_id" id="zone" disabled>
-                                            <option>{{$aqar->zone->name}}</option>
+                                            <option>{{$aqar->city->zone->name}}</option>
+                                    </select>
+                                </div>
+                                <div class="control-group form-group">
+                                    <p class="mg-b-10">{{__('admin/pages/aqars.city')}}
+                                    </p>
+                                    <select class="form-control select2" disabled>
+                                        <option>{{$aqar->city->name}}</option>
                                     </select>
                                 </div>
                                 <div class="control-group form-group">
@@ -78,8 +85,7 @@
                                 </div>
                                 <div class="control-group form-group">
                                     <label class="form-label"
-                                           for="price">{{__('admin/pages/aqars.price')}} <span
-                                            class="tx-danger">*</span></label>
+                                           for="price">{{__('admin/pages/aqars.price')}}
                                     <input class="form-control" type="text" name="price" id="price" value="{{$aqar->price}}" disabled>
                                 </div>
                                 <div class="control-group form-group">

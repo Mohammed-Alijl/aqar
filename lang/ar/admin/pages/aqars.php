@@ -25,12 +25,12 @@ return [
     'add.images.videos' => 'إضافة صور وفيديوهات للعقار',
     'title.invalid' => 'اسم العقار مطلوب',
     'zone.invalid' => 'الرجاء اختيار المنطقة',
-    'category.invalid' => 'الرجاء اختيار الفئة',
+    'category.invalid' => 'الرجاء اختيار القسم',
     'location' => 'الموقع',
     'attributes' => 'الخصائص',
     'list' => 'قائمة العقارات',
     'related.aqars' => 'عقارات مشابهة',
-    'category' => 'الفئة',
+    'category' => 'القسم',
     'next' => 'التالي',
     'previous' => 'السابق',
     'edit.aqar.from.here' => 'تعديل العقار من هنا!',
@@ -44,5 +44,7 @@ return [
     'show.aqar' => 'عرض العقار',
     'show.aqar.from.here' => 'عرض تفاصيل العقار من هنا!',
     'finish' => 'انتهاء',
+    'city' => 'المدينة',
+    'city.invalid' => 'الرجاء اختيار المدينة',
 ];
 

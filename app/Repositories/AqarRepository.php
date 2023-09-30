@@ -25,7 +25,7 @@ class AqarRepository implements BasicRepositoryInterface
         $aqar->title = $request->title;
         if ($request->filled('description'))
             $aqar->description = $request->description;
-        $aqar->zone_id = $request->zone_id;
+        $aqar->city_id = $request->city_id;
         $aqar->category_id = $request->category_id;
         $aqar->price = $request->price;
         $aqar->latitude = $request->latitude;
@@ -62,7 +62,7 @@ class AqarRepository implements BasicRepositoryInterface
             $aqar->description = $request->description;
         else
             $aqar->description = null;
-        $aqar->zone_id = $request->zone_id;
+        $aqar->city_id = $request->city_id;
         $aqar->category_id = $request->category_id;
         $aqar->price = $request->price;
         $aqar->latitude = $request->latitude;

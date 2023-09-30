@@ -55,13 +55,15 @@ $(function () {
                 if (currentIndex === 0) {
                     let title = $('#title').parsley();
                     let zone = $('#zone').parsley();
+                    let city = $('#city').parsley();
                     let attachment = $('#input-b3').parsley();
                     let price = $('#price').parsley();
-                    if (title.isValid() && zone.isValid() && attachment.isValid() && price.isValid()) {
+                    if (title.isValid() && zone.isValid() && city.isValid() && attachment.isValid() && price.isValid()) {
                         return true;
                     } else {
                         title.validate();
                         zone.validate();
+                        city.validate();
                         attachment.validate();
                         price.validate();
                     }
@@ -112,12 +114,14 @@ $(function () {
                 if (currentIndex === 0) {
                     let title = $('#title').parsley();
                     let zone = $('#zone').parsley();
+                    let city = $('#city').parsley();
                     let price = $('#price').parsley();
-                    if (title.isValid() && zone.isValid() && price.isValid()) {
+                    if (title.isValid() && zone.isValid() && city.isValid() && price.isValid()) {
                         return true;
                     } else {
                         title.validate();
                         zone.validate();
+                        city.validate();
                         price.validate();
                     }
                 }

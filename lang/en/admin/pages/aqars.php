@@ -44,4 +44,6 @@ return [
   'show.aqar' => 'Display Aqar',
   'show.aqar.from.here' => 'Display All Aqar Details From Here!',
   'finish' => 'Finish',
+  'city' => 'City',
+  'city.invalid' => 'Please Select The City',
 ];
