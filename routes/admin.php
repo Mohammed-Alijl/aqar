@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AqarController;
 use App\Http\Controllers\Admin\AttributeValueController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ZoneController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttributeController;
@@ -33,6 +34,9 @@ Route::prefix('admin')->group(function () {
 
         //Zone
         Route::resource('zones',ZoneController::class)->except(['show','create','edit']);
+
+        //Zone
+        Route::resource('cities',CityController::class)->except(['show','create','edit']);
 
         //Attribute
         Route::resource('attributes',AttributeController::class)->except(['create','edit']);

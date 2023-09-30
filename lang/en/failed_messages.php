@@ -21,6 +21,16 @@ return [
     'zone.can.not.delete' => 'This Zone Is already In Use',
 
     //================================================================================
+    // CITIES=========================================================================
+    //================================================================================
+    'city.name.required' => 'The Name Of City Is Required',
+    'city.name.max' => 'The Name Of City Is Too Long',
+    'city.zone_id.required' => 'Please Select Zone From The Selected Box',
+    'city.zone_id.integer' => 'Please Select Zone From The Selected Box',
+    'city.zone_id.exists' => 'Please Select Zone From The Selected Box',
+    'city.can.not.delete' => 'This City Is already In Use',
+
+    //================================================================================
     // ATTRIBUTES=====================================================================
     //================================================================================
     'attribute.name.required' => 'The Name Of Attribute Is Required',
