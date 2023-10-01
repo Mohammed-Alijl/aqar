@@ -14,21 +14,14 @@
     <div class="aqar-page">
         <div class="container">
             <div class="photos pb-4 pt-5">
-                <div>
-                    <img src="{{asset('frontend/img/product-1.png')}}" alt="">
-                </div>
-                <div>
-                    <div class="mb-md-4">
-                        <img src="{{asset('frontend/img/product-1.png')}}" alt="">
-                    </div>
-                    <div class="">
-                        <img src="{{asset('frontend/img/product-1.png')}}" alt="">
-                    </div>
+                <div class="fotorama" data-loop="true" data-allowfullscreen="true"  data-direction="rtl"
+                     data-nav='thumbs' data-thumbmargin="10">
+                    @foreach($aqar->attachments as $image)
+                    <img src="{{asset("storage/attachment/$image->path")}}" alt="">
+                    @endforeach
                 </div>
                 <div class="photos-num">
-                    <span>
-                        {{$aqar->attachments->count()}} صور
-                    </span>
+                    <span> {{$aqar->attachments->count()}} صور</span>
                     <svg>
                         <use href="{{asset('frontend/icons.svg#gallery')}}"></use>
                     </svg>
