@@ -382,6 +382,7 @@ a {
 .home-page .slider .search-box .search-form .search-input-btn {
   background-color: rgba(0, 158, 82, 0.031372549);
   border-radius: 8px;
+  position: relative;
 }
 .home-page .slider .search-box .search-form .search-input-btn .search-field {
   background: transparent;
@@ -395,6 +396,34 @@ a {
 }
 .home-page .slider .search-box .search-form .search-input-btn .search-field::placeholder {
   color: #000000;
+}
+.home-page .slider .search-box .search-form .search-input-btn .search-field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  background: url("../img/xmark-solid.svg") no-repeat 50% 50%;
+}
+.home-page .slider .search-box .search-form .search-input-btn .search-list {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 100%;
+  display: none;
+}
+.home-page .slider .search-box .search-form .search-input-btn .search-list .list-group {
+  box-shadow: 0 5px 16px rgba(137, 137, 137, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.home-page .slider .search-box .search-form .search-input-btn .search-list .list-group .list-group-item {
+  border: none;
+  color: #000000;
+  transition: all ease-in-out 0.3s;
+}
+.home-page .slider .search-box .search-form .search-input-btn .search-list .list-group .list-group-item:hover {
+  background-color: rgba(0, 158, 82, 0.1019607843);
+  color: #009E52;
 }
 .home-page .slider .search-box svg {
   width: 25px;
@@ -608,46 +637,74 @@ a {
   font-weight: 600;
 }
 .aqar-page .photos {
+  position: relative;
+}
+.aqar-page .photos .fotorama {
+  overflow: visible;
+}
+.aqar-page .photos .fotorama .fotorama__wrap,
+.aqar-page .photos .fotorama .fotorama__stage,
+.aqar-page .photos .fotorama .fotorama__stage__shaft {
+  width: 100% !important;
+}
+.aqar-page .photos .fotorama .fotorama__wrap {
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  height: 600px;
-  position: relative;
+  justify-content: center;
+  gap: 20px;
 }
-.aqar-page .photos > div {
-  overflow: hidden;
-  position: relative;
+.aqar-page .photos .fotorama .fotorama__stage {
+  order: 2;
+  max-height: 600px;
   border-radius: 8px;
 }
-.aqar-page .photos > div img {
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.aqar-page .photos .fotorama .fotorama__nav {
+  height: 100%;
 }
-.aqar-page .photos > div:first-of-type {
-  width: 60%;
+.aqar-page .photos .fotorama .fotorama__nav-wrap {
+  width: 30%;
 }
-.aqar-page .photos > div:nth-of-type(2) {
-  width: 39%;
+.aqar-page .photos .fotorama .fotorama__nav-wrap .fotorama__nav__shaft {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
 }
-.aqar-page .photos > div:nth-of-type(2) > div {
+.aqar-page .photos .fotorama .fotorama__nav__frame {
+  padding: 0px !important;
+  flex: 1 0 0%;
+  width: 100% !important;
+}
+.aqar-page .photos .fotorama .fotorama__active .fotorama__thumb {
+  border-color: #009E52;
+}
+.aqar-page .photos .fotorama .fotorama__thumb {
+  border: none;
   border-radius: 8px;
-  height: calc(50% - 10px);
-  overflow: hidden;
-  position: relative;
 }
-.aqar-page .photos > div:nth-of-type(2) > div img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.aqar-page .photos .fotorama .fotorama__thumb img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
+  left: 0 !important;
+}
+.aqar-page .photos .fotorama .fotorama__thumb-border,
+.aqar-page .photos .fotorama .fotorama__fullscreen-icon,
+.aqar-page .photos .fotorama .fotorama__arr {
+  display: none !important;
+}
+.aqar-page .photos .fotorama .fotorama__thumb:hover {
+  border-color: #E6E6E6;
+  opacity: 0.8;
+}
+.aqar-page .photos .fotorama .fotorama__stage__frame .fotorama__img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
+  left: 0 !important;
+  top: 0 !important;
 }
 .aqar-page .photos .photos-num {
   padding: 9px 15px;

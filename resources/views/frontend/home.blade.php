@@ -11,7 +11,8 @@
                 <form action="{{ route('filter_results') }}" class="search-form" method="GET">
                     <div class="d-flex search-input-btn w-100">
                         <div class="flex-grow-1">
-                            <input type="text" class="search-field" placeholder="بحث..." name="search" value="" required
+                            <input type="text" class="search-field" id="search_input" placeholder="بحث..." name="search"
+                                   value="" required
                                    autocomplete="off">
                         </div>
                         <div>
@@ -20,6 +21,11 @@
                                     <use href="{{asset('frontend/icons.svg#search')}}"></use>
                                 </svg>
                             </button>
+                        </div>
+                        <!--search list for input search added  -->
+                        <div class="search-list">
+                            <ul class="list-group">
+                            </ul>
                         </div>
                     </div>
                 </form>
@@ -198,7 +204,8 @@
                                                     <div>
                                                         @foreach($zones as $zone)
                                                             <label class="custom-radio">
-                                                                <input type="checkbox" name="zones[]" value="{{$zone->id}}" class="zone-section">
+                                                                <input type="checkbox" name="zones[]"
+                                                                       value="{{$zone->id}}" class="zone-section">
                                                                 <span class="check-btn">
                                                         <span class="check-icon">
                                                             <i class="fa-solid fa-check"></i>
@@ -450,26 +457,66 @@
         })
         @endforeach
 
-        // Live Search Ajax Code
+        // Live Search
         $(document).ready(function () {
-            $('.search-field').on('input', function () {
-                var searchText = $(this).val().trim();
+            const searchField = $('.search-field');
+            const searchList = $('.list-group');
+            const searchListContainer = $('.search-list');
+            let searchTimeout;
 
-                if (searchText !== '') {
-                    $.ajax({
-                        url: "{{ route('search_suggestions') }}",
-                        type: "GET",
-                        data: {search: searchText},
-                        success: function (data) {
-                            // The Data Is The Result Of Live Search It Should Display By The Front End
-                            console.log(data)
-                        }
-                    });
-                } else {
-                    // Here Should Clear The List Because There Is No Any Result
-                }
+            searchField.on('input', function () {
+                clearTimeout(searchTimeout);
+
+                let searchText = $(this).val().trim();
+
+                // Add a delay before making the AJAX request
+                searchTimeout = setTimeout(function () {
+                    if (searchText !== '') {
+                        $.ajax({
+                            url: "{{ route('search_suggestions') }}",
+                            type: "GET",
+                            data: { search: searchText },
+                            success: function (data) {
+                                updateSearchResults(data);
+                            },
+                            error: function () {
+                                clearSearchResults();
+                            }
+                        });
+                    } else {
+                        clearSearchResults();
+                    }
+                }, 300); // Adjust the delay time as needed
             });
+
+            function updateSearchResults(data) {
+                searchList.empty();
+
+                if (Object.keys(data).length > 0) {
+                    $.each(data, function (key, value) {
+                        const aqarUrl = "{{ route('aqar', ':aqarId') }}".replace(':aqarId', value);
+
+                        searchList.append(`<li>
+                    <a href="${aqarUrl}" class="list-group-item">
+                        ${key}
+                    </a>
+                </li>`);
+                    });
+
+                    searchListContainer.slideDown();
+                } else {
+                    // No results found
+                    searchList.append(`<li class="list-group-item">لا يوجد أي نتائج</li>`);
+                    searchListContainer.slideDown();
+                }
+            }
+
+            function clearSearchResults() {
+                searchList.empty();
+                searchListContainer.slideUp();
+            }
         });
+
 
 
         // Ajax Code To Get Cities Based On The Zone
@@ -575,5 +622,7 @@
                 }
             }
         });
+
+
     </script>
 @endsection
