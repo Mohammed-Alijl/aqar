@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ZoneController;
 use App\Http\Controllers\Frontend\AqarController;
 use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -32,6 +33,7 @@ Route::group(
 
     // Aqar Page
     Route::get('/aqar/{id}', [AqarController::class, 'show'])->name('aqar');
+    Route::get('zone-cities/{id}',[ZoneController::class,'getCities']);
 
     // Category Page
     Route::get('/categories/{id}',[CategoryController::class,'show'])->name('category.show');

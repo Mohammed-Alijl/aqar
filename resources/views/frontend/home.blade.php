@@ -191,29 +191,30 @@
                                             </div>
                                             <div class="tab-pane fade" id="location" role="tabpanel"
                                                  aria-labelledby="location-tab">
-                                                <h6>
-                                                    المنطقة
-                                                </h6>
-                                                <div>
-                                                    @foreach($zones as $zone)
-                                                        <label class="custom-radio">
-                                                            <input type="checkbox" name="zones[]" value="{{$zone->id}}">
-                                                            <span class="check-btn">
+                                                <div class="mb-3">
+                                                    <h6>
+                                                        المنطقة
+                                                    </h6>
+                                                    <div>
+                                                        @foreach($zones as $zone)
+                                                            <label class="custom-radio">
+                                                                <input type="checkbox" name="zones[]" value="{{$zone->id}}" class="zone-section">
+                                                                <span class="check-btn">
                                                         <span class="check-icon">
                                                             <i class="fa-solid fa-check"></i>
                                                         </span>
                                                         <span> {{$zone->name}} </span>
                                                     </span>
-                                                        </label>
-                                                    @endforeach
+                                                            </label>
+                                                        @endforeach
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="location" role="tabpanel"
-                                                 aria-labelledby="location-tab">
-                                                <h6>
-                                                    المدينة
-                                                </h6>
-                                                <div>
+                                                <div id="city-container" style="display: none">
+                                                    <h6>
+                                                        المدينة
+                                                    </h6>
+                                                    <div id="city-container-body">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="price" role="tabpanel"
@@ -480,7 +481,7 @@
                     var zoneId = $(this).val();
 
                     $.ajax({
-                        url: "{{ URL::to('admin/zone-cities') }}/" + zoneId,
+                        url: "{{ URL::to('zone-cities') }}/" + zoneId,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
@@ -519,6 +520,58 @@
                     $('#city-container-all').hide();
                 } else {
                     $('#city-container-all').show();
+                }
+            }
+        });
+
+        // Ajax Code To Get Cities Based On The Zone
+        $(document).ready(function () {
+            var zoneCities = {};
+
+            $('.zone-section').on('change', function () {
+                if ($(this).is(':checked')) {
+                    var zoneId = $(this).val();
+
+                    $.ajax({
+                        url: "{{ URL::to('zone-cities') }}/" + zoneId,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            zoneCities[zoneId] = data;
+                            showCities(zoneId);
+                        },
+                    });
+                } else {
+                    var zoneId = $(this).val();
+
+                    delete zoneCities[zoneId];
+
+                    showCities(zoneId);
+                }
+            });
+
+            function showCities(zoneId) {
+                var cityContainer = $('#city-container-body');
+
+                cityContainer.empty();
+
+                $.each(zoneCities, function (key, cities) {
+                    $.each(cities, function (cityId, cityName) {
+                        cityContainer.append(`
+                        <label class="custom-radio">
+                            <input type="checkbox" name="cities[]" value="${cityId}">
+                            <span class="check-btn">
+                                <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                                <span> ${cityName} </span>
+                            </span>
+                        </label>
+                    `);
+                    });
+                });
+                if ($.isEmptyObject(zoneCities)) {
+                    $('#city-container').hide();
+                } else {
+                    $('#city-container').show();
                 }
             }
         });
