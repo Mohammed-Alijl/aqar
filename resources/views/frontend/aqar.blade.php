@@ -130,7 +130,7 @@
                         @foreach($aqar->related as $relatedAqar)
                             <div class="aqar-card pb-2" id='1'>
                                 <div class="aqar-card-img">
-                                    <a href="{{route('aqar',$relatedAqar->id)}}">
+                                    <a href="{{route('aqar',$relatedAqar->slug)}}">
                                         <img
                                             src="{{asset('storage/attachment/' . $relatedAqar->attachments->first()->path)}}"
                                             class="card-img-top" alt="related aqar">
@@ -143,7 +143,7 @@
                                         </svg>
                                         السعودية - {{$aqar->zone->name}}
                                     </p>
-                                    <a href="{{route('aqar',$relatedAqar->id)}}" class="card-title">
+                                    <a href="{{route('aqar',$relatedAqar->slug)}}" class="card-title">
                                         <h5 class="mb-3">{{$aqar->title}}</h5>
                                     </a>
                                     <p class="price">
@@ -212,7 +212,7 @@
                     await navigator.share({
                         title: 'شارك هذا العقار!',
                         text: 'شارك هذا العقار مع الاخرين الان!',
-                        url: '{{route('aqar',$aqar->id)}}'
+                        url: '{{route('aqar',$aqar->slug)}}'
                     });
                 } catch (error) {
                     console.error('Error sharing:', error);

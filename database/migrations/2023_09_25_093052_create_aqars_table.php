@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('mobile_number')->nullable();
             $table->string('whatsapp_number')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

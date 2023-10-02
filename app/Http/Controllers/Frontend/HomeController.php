@@ -33,7 +33,7 @@ class HomeController extends Controller
         $results = Aqar::where('title', 'like', '%' . $search . '%')
             ->orWhere('description', 'like', '%' . $search . '%')
             ->limit(5)
-            ->pluck('id', 'title');
+            ->pluck('slug', 'title');
 
         return json_decode($results);
     }

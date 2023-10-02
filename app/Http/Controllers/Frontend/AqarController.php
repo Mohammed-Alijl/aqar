@@ -12,10 +12,10 @@ class AqarController extends Controller
     {
     }
 
-    public function show($id){
-        $aqar = $this->aqarRepository->find($id);
-        $aqar->watches +=1;
+    public function show($slug){
+        $aqar = $this->aqarRepository->findBySlug($slug);
+        $aqar->watches += 1;
         $aqar->save();
-        return view('frontend.aqar',compact('aqar'));
+        return view('frontend.aqar', compact('aqar'));
     }
 }

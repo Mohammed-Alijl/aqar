@@ -19,6 +19,11 @@ class AqarRepository implements BasicRepositoryInterface
         return Aqar::findOrFail($id);
     }
 
+    public function findBySlug($slug)
+    {
+        return Aqar::where('slug', $slug)->firstOrFail();
+    }
+
     public function create($request)
     {
         $aqar = new Aqar();

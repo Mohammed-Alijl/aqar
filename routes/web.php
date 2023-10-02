@@ -25,7 +25,7 @@ Route::get('/filter-results', [HomeController::class, 'filter'])->name('filter_r
 
 
 // Aqar Page
-Route::get('/aqar/{id}', [AqarController::class, 'show'])->name('aqar');
+Route::get('/aqar/{slug}', [AqarController::class, 'show'])->name('aqar');
 Route::get('zone-cities/{id}',[ZoneController::class,'getCities']);
 
 // Category Page

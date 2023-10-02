@@ -34,7 +34,7 @@
                 @foreach($category->aqars as $aqar)
                     <div class="aqar-card pb-2" id='1'>
                         <div class="aqar-card-img">
-                            <a href="{{route('aqar',$aqar->id)}}">
+                            <a href="{{route('aqar',$aqar->slug)}}">
                                 <img src="{{asset("storage/attachment/" . $aqar->attachments->first()->path)}}"
                                      class="card-img-top" alt=" ">
                             </a>
@@ -46,7 +46,7 @@
                                 </svg>
                                 {{\App\Models\Country::first()->name . " - " . $aqar->city->name}}
                             </p>
-                            <a href="{{route('aqar',$aqar->id)}}" class="card-title">
+                            <a href="{{route('aqar',$aqar->slug)}}" class="card-title">
                                 <h5 class="mb-3">{{$aqar->title}}</h5>
                             </a>
                             <p class="price">

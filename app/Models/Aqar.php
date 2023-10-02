@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Aqar extends Model
 {
@@ -22,6 +23,26 @@ class Aqar extends Model
         'mobile_number',
         'email'
     ];
+
+    protected static function booted()
+    {
+        static::creating(function ($aqar) {
+            $aqar->slug = static::generateUniqueSlug($aqar->title);
+        });
+    }
+
+    public static function generateUniqueSlug($title)
+    {
+        $slug = Str::slug($title);
+        $count = 1;
+
+        while (static::where('slug', $slug)->exists()) {
+            $slug = Str::slug($title) . '-' . $count;
+            $count++;
+        }
+
+        return $slug;
+    }
 
 
     //===============================================================
