@@ -55,13 +55,15 @@ $(function () {
                 if (currentIndex === 0) {
                     let title = $('#title').parsley();
                     let zone = $('#zone').parsley();
+                    let category = $('#category').parsley();
                     let city = $('#city').parsley();
                     let attachment = $('#input-b3').parsley();
                     let price = $('#price').parsley();
-                    if (title.isValid() && zone.isValid() && city.isValid() && attachment.isValid() && price.isValid()) {
+                    if (title.isValid() && category.isValid() && zone.isValid() && city.isValid() && attachment.isValid() && price.isValid()) {
                         return true;
                     } else {
                         title.validate();
+                        category.validate();
                         zone.validate();
                         city.validate();
                         attachment.validate();
@@ -113,13 +115,15 @@ $(function () {
                 // Step 1 form validation
                 if (currentIndex === 0) {
                     let title = $('#title').parsley();
+                    let category = $('#category').parsley();
                     let zone = $('#zone').parsley();
                     let city = $('#city').parsley();
                     let price = $('#price').parsley();
-                    if (title.isValid() && zone.isValid() && city.isValid() && price.isValid()) {
+                    if (title.isValid() && category.isValid() && zone.isValid() && city.isValid() && price.isValid()) {
                         return true;
                     } else {
                         title.validate();
+                        category.validate();
                         zone.validate();
                         city.validate();
                         price.validate();
