@@ -7,6 +7,7 @@ return [
     //================================================================================
     'category.name.required' => 'اسم القسم مطلوب',
     'category.name.max' => 'اسم القسم طويل جداً',
+    'category.name.unique' => 'هذا القسم موجود بالفعل',
     'category.display_main.required' => 'الرجاء اختيار ما إذا كان سيتم عرضه في الصفحة الرئيسية أم لا',
     'category.display_main.boolean' => 'الرجاء اختيار نعم أو لا للعرض في الصفحة الرئيسية',
     'category.display_order.integer' => 'الرجاء إدخال ترتيب العرض كرقم صحيح',

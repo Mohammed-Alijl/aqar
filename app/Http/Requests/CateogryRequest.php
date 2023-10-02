@@ -22,7 +22,7 @@ class CateogryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:categories,name,' . $this->id,
             'display_main' => 'required|boolean',
             'display_order' => 'nullable|integer|required_if:display_main,1'
         ];
@@ -33,6 +33,7 @@ class CateogryRequest extends FormRequest
         return [
           'name.required' => __('failed_messages.category.name.required'),
           'name.max' => __('failed_messages.category.name.max'),
+          'name.unique' => __('failed_messages.category.name.unique'),
           'display_main.required' => __('failed_messages.category.display_main.required'),
           'display_main.boolean' => __('failed_messages.category.display_main.boolean'),
           'display_order.integer' => __('failed_messages.category.display_order.integer'),

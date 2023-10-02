@@ -22,6 +22,11 @@ class CategoryRepository implements BasicRepositoryInterface
         return Category::findOrFail($id);
     }
 
+    public function findBySlug(string $slug)
+    {
+        return Category::where('slug', $slug)->firstOrFail();
+    }
+
     public function create($request)
     {
         $category = new Category();

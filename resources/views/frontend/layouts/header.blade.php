@@ -16,7 +16,7 @@
                     </li>
                     @foreach(\App\Models\Category::where('display_main',1)->orderBy('display_order')->get() as $category)
                         <li class="nav-item {{ request()->is('categories/' . $category->id) ? 'active' : '' }}">
-                            <a href="{{route('category.show',$category->id)}}">
+                            <a href="{{route('category.show',$category->slug)}}">
                                 {{$category->name}}
                             </a>
                         </li>

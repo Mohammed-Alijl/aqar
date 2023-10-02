@@ -12,8 +12,8 @@ class CategoryController extends Controller
     {
     }
 
-    public function show(string $id){
-        $category = $this->categoryRepository->find($id);
-        return view('frontend.category',compact('category'));
+    public function show(string $slug){
+        $category = $this->categoryRepository->findBySlug($slug);
+        return view('frontend.category', compact('category'));
     }
 }

@@ -7,6 +7,7 @@ return [
     //================================================================================
     'category.name.required' => 'The Category Name Is Required',
     'category.name.max' => 'The Category Name Is Too Long',
+    'category.name.unique' => 'The Category Is Already Exists',
     'category.display_main.required' => 'Please Select If The Category Will Be In The Home Page Or Not',
     'category.display_main.boolean' => 'Please Select If The Category Will Be In The Home Page Or Not',
     'category.display_order.integer' => 'The Display Order Should Be Integer Only',
