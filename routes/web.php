@@ -18,25 +18,26 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
+// Home Page
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/search/suggestions', [HomeController::class,'suggestions'])->name('search_suggestions');
+Route::get('/filter-results', [HomeController::class, 'filter'])->name('filter_results');
+
+
+// Aqar Page
+Route::get('/aqar/{id}', [AqarController::class, 'show'])->name('aqar');
+Route::get('zone-cities/{id}',[ZoneController::class,'getCities']);
+
+// Category Page
+Route::get('/categories/{id}',[CategoryController::class,'show'])->name('category.show');
+
+
+
 
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ], function () {
-
-    // Home Page
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/search/suggestions', [HomeController::class,'suggestions'])->name('search_suggestions');
-    Route::get('/filter-results', [HomeController::class, 'filter'])->name('filter_results');
-
-
-    // Aqar Page
-    Route::get('/aqar/{id}', [AqarController::class, 'show'])->name('aqar');
-    Route::get('zone-cities/{id}',[ZoneController::class,'getCities']);
-
-    // Category Page
-    Route::get('/categories/{id}',[CategoryController::class,'show'])->name('category.show');
     require __DIR__ . '/admin.php';
-
 });
