@@ -11,18 +11,7 @@
     <link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
 
-    <!-- default icons used in the plugin are from Bootstrap 5.x icon library (which can be enabled by loading CSS below) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css"
-          crossorigin="anonymous">
 
-    <!-- the fileinput plugin styling CSS file -->
-    <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css" media="all"
-          rel="stylesheet" type="text/css"/>
-    <!-- bootstrap.bundle.min.js below is needed if you wish to zoom and preview file content in a detail modal
-        dialog. bootstrap 5.x or 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-    <!-- the main fileinput plugin script JS file -->
     <style>
         /* Set the map container size */
         #map {
@@ -140,12 +129,18 @@
                                 </div>
                                 <input id="input-pd" data-show-upload="false" name="images[]" type="file" multiple>
                             </section>
+                            <br>
+                            <br>
+                            <br>
                             <h3>{{__('admin/pages/aqars.location')}}</h3>
                             <section>
                                 <div id="map"></div>
                                 <input type="hidden" name="latitude" id="latitude" value="{{$aqar->latitude}}">
                                 <input type="hidden" name="longitude" id="longitude" value="{{$aqar->longitude}}">
                             </section>
+                            <br>
+                            <br>
+                            <br>
                             <h3>{{__('admin/pages/aqars.attributes')}}</h3>
                             <section class="attributesContainer">
                                 <div class="control-group form-group">
@@ -180,6 +175,9 @@
                                     </div>
                                 @endforeach
                             </section>
+                            <br>
+                            <br>
+                            <br>
                             <h3>{{__('admin/pages/aqars.contact.us')}}</h3>
                             <section>
                                 <div class="control-group form-group">
@@ -204,6 +202,9 @@
                                            placeholder="{{__('admin/pages/aqars.email')}}">
                                 </div>
                             </section>
+                            <br>
+                            <br>
+                            <br>
                             <h3>{{__('admin/pages/aqars.related.aqars')}}</h3>
                             <section>
                                 <select class="form-control select2" multiple="multiple" style="width: 100%" name="related_aqars[]">
@@ -215,14 +216,11 @@
                                 </select>
                             </section>
                         </div>
+                        <br>
+                        <br>
+                        <input class="btn btn-primary" type="submit" value="{{__('admin/pages/aqars.edit')}}">
                     </div>
                 </form>
-                <div id="translations"
-                     data-next="{{__('admin/pages/aqars.next')}}"
-                     data-previous="{{__('admin/pages/aqars.previous')}}"
-                     data-finish="{{__('admin/pages/aqars.finish')}}"
-                >
-                </div>
             </div>
         </div>
     </div>
@@ -285,7 +283,7 @@
     <script src="{{URL::asset('assets/plugins/jquery-steps/jquery.steps.min.js')}}"></script>
     <script src="{{URL::asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
     <!--Internal  Form-wizard js -->
-    <script src="{{URL::asset('assets/js/form-wizard.js')}}"></script>
+{{--    <script src="{{URL::asset('assets/js/form-wizard.js')}}"></script>--}}
     <script src="{{URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
     <!--Internal  jquery.maskedinput js -->
     <script src="{{URL::asset('assets/plugins/jquery.maskedinput/jquery.maskedinput.js')}}"></script>
