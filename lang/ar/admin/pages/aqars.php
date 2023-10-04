@@ -22,7 +22,7 @@ return [
     'enter.title' => 'أدخل العنوان',
     'choose' => 'اختر...',
     'description' => 'الوصف',
-    'add.images.videos' => 'إضافة صور وفيديوهات للعقار',
+    'add.images.videos' => 'إضافة صور للعقار',
     'title.invalid' => 'اسم العقار مطلوب',
     'zone.invalid' => 'الرجاء اختيار المنطقة',
     'category.invalid' => 'الرجاء اختيار القسم',

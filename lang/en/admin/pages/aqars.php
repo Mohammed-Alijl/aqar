@@ -22,7 +22,7 @@ return [
   'enter.title' => 'Enter Title',
   'choose' => 'Choose...',
   'description' => 'Description',
-  'add.images.videos' => 'Add Images & Videos For The Aqar',
+  'add.images.videos' => 'Add Images For The Aqar',
   'title.invalid' => 'Aqars Title Is Required',
   'zone.invalid' => 'Please Select Zone',
   'category.invalid' => 'Please Select The Category',
