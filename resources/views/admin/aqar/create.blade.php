@@ -145,6 +145,7 @@
                                     <label class="form-label"
                                            for="mobile_number">{{__('admin/pages/aqars.mobile_number')}}</label>
                                     <input class="form-control" type="text" name="mobile_number" id="mobile_number" maxlength="15"
+                                           value="966551800307"
                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                            placeholder="{{__('admin/pages/aqars.mobile_number')}}">
                                 </div>
@@ -153,6 +154,7 @@
                                            for="whatsapp_number">{{__('admin/pages/aqars.whatsapp_number')}}</label>
                                     <input class="form-control" type="text" name="whatsapp_number" id="whatsapp_number" maxlength="15"
                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                           value="966551800307"
                                            placeholder="{{__('admin/pages/aqars.whatsapp_number')}}">
                                 </div>
                                 <div class="control-group form-group">
