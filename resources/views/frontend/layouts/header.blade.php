@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     @foreach(\App\Models\Category::where('display_main',1)->orderBy('display_order')->get() as $category)
-                        <li class="nav-item {{ request()->is('categories/' . $category->id) ? 'active' : '' }}">
+                        <li class="nav-item {{ request()->is('categories/' . $category->slug) ? 'active' : '' }}">
                             <a href="{{route('category.show',$category->slug)}}">
                                 {{$category->name}}
                             </a>
@@ -49,13 +49,13 @@
         </div>
         <div class="menu-list mb-4">
             <ul class="nav">
-                <li class="nav-item active">
+                <li class="nav-item {{request()->route()->named(['home']) ? 'active' : ''}}">
                     <a href="{{route('home')}}">
                         الرئيسية </a>
                 </li>
                 @foreach(\App\Models\Category::where('display_main',1)->orderBy('display_order')->get() as $category)
-                    <li class="nav-item ">
-                        <a href="#">
+                    <li class="nav-item {{ request()->is('categories/' . $category->slug) ? 'active' : '' }}">
+                        <a href="{{route('category.show',$category->slug)}}">
                             {{$category->name}}
                         </a>
                     </li>
