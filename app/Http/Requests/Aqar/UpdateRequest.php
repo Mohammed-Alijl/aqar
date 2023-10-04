@@ -21,6 +21,7 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        $size = count($this->input('attributes'));
         return [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -31,10 +32,10 @@ class UpdateRequest extends FormRequest
             'longitude' => 'required|numeric',
             'attachments' => 'array',
             'attachments.*' => 'required|image',
-            'attributes' => 'nullable|array|unique_values',
+            'attributes' => 'nullable|array|unique_values|size:' .  $size,
             'attributes.*' => 'integer|exists:attributes,id',
-            'values' => 'nullable|array|unique_values',
-            'values.*' => 'integer|exists:attribute_values,id',
+            'values' => 'nullable|array|unique_values|size:' .  $size,
+            'values.*' => 'string|max:255',
             'related_aqars' => 'nullable|array|unique_values',
             'related_aqars.*' => 'integer|exists:aqars,id',
             'price' => 'required|numeric',

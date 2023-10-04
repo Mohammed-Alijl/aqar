@@ -71,11 +71,7 @@
                             @foreach($attributes as $attribute)
                                 <tr>
                                     <td>{{$row++}}</td>
-                                    <td>
-                                        <a href="{{route('attributes.show',$attribute->id)}}">
-                                            {{$attribute->name}}
-                                        </a>
-                                    </td>
+                                    <td>{{$attribute->name}}</td>
                                     <td>
                                         <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
                                            data-id="{{ $attribute->id }}" data-attribute_name="{{ $attribute->name }}"

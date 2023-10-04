@@ -78,7 +78,17 @@ $(function () {
                 }
                 // Step 3 form validation
                 if (currentIndex === 2) {
-                    return true;
+                    let values = document.querySelectorAll('.attributeValue');
+                    let isValid = true;
+
+                    values.forEach(function(value) {
+                        if (value.value === null || value.value.trim() === '') {
+                            value.parsley().validate();
+                            isValid = false;
+                        }
+                    });
+
+                    return isValid;
                 }
 
                 // Step 4 form validation

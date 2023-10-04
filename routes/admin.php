@@ -39,11 +39,11 @@ Route::prefix('admin')->group(function () {
         Route::resource('cities',CityController::class)->except(['show','create','edit']);
 
         //Attribute
-        Route::resource('attributes',AttributeController::class)->except(['create','edit']);
+        Route::resource('attributes',AttributeController::class)->except(['create','edit','show']);
         Route::get('attribute-values/{attributeId}',[AttributeController::class,'getValues']);
 
         //Attribute Value
-        Route::resource('attribute/values',AttributeValueController::class)->except(['index','show','create','edit']);
+//        Route::resource('attribute/values',AttributeValueController::class)->except(['index','show','create','edit']);
 
         //Attribute Value
         Route::resource('aqars',AqarController::class);

@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Interfaces\BasicRepositoryInterface;
 use App\Models\Aqar;
 use App\Models\AqarAttachment;
+use App\Models\AttributeValue;
 use Illuminate\Support\Facades\Storage;
 
 class AqarRepository implements BasicRepositoryInterface
@@ -51,10 +52,20 @@ class AqarRepository implements BasicRepositoryInterface
             $attachment->save();
         }
 
-        if ($request->filled('attributes'))
+        if ($request->filled('attributes')) {
+            $attributes = $request->input('attributes');
+            $values = $request->input('values');
+
+            foreach ($attributes as $index => $attributeId) {
+                $attributeValue = new AttributeValue([
+                    'attribute_id' => $attributeId,
+                    'name' => $values[$index],
+                ]);
+                $attributeValue->save();
+                $aqar->attributeValues()->attach($attributeValue->id);
+            }
             $aqar->attributes()->attach($request->input('attributes'));
-        if ($request->filled('values'))
-            $aqar->attributeValues()->attach($request->values);
+        }
         if ($request->filled('related_aqars'))
             $aqar->related()->sync($request->input('related_aqars'));
     }
@@ -95,20 +106,32 @@ class AqarRepository implements BasicRepositoryInterface
             }
         }
 
-        if ($request->filled('attributes'))
+        if ($request->filled('attributes')) {
+            $attributes = $request->input('attributes');
+            $values = $request->input('values');
+            $valuesId = [];
+            $aqar->attributeValues()->delete();
+
+            foreach ($attributes as $index => $attributeId) {
+                $attributeValue = new AttributeValue([
+                    'attribute_id' => $attributeId,
+                    'name' => $values[$index],
+                ]);
+                $attributeValue->save();
+                $valuesId[] = $attributeValue->id;
+            }
+            $aqar->attributeValues()->sync($valuesId);
             $aqar->attributes()->sync($request->input('attributes'));
-        else
+        } else {
             $aqar->attributes()->detach();
-
-        if ($request->filled('values'))
-            $aqar->attributeValues()->sync($request->values);
-        else
             $aqar->attributeValues()->detach();
+        }
 
-        if ($request->filled('related_aqars'))
-            $aqar->related()->sync($request->input('related_aqars'));
-        else
-            $aqar->related()->detach();
+
+            if ($request->filled('related_aqars'))
+                $aqar->related()->sync($request->input('related_aqars'));
+            else
+                $aqar->related()->detach();
     }
 
     public function delete($id)

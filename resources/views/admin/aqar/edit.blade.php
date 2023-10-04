@@ -158,12 +158,7 @@
                                     <div class="row">
                                         <div class="mb-3 col-md-9">
                                             <label class="form-label">{{$attribute->name}}</label>
-                                            <select class="form-control" id="{{$attribute->name}}" name="values[]">
-                                                @foreach($attribute->values as $value)
-                                                    <option
-                                                        {{$aqar->attributeValues->contains($value->id) ? 'selected' : ''}} value="{{$value->id}}">{{$value->name}}</option>
-                                                @endforeach
-                                            </select>
+                                            <input class="form-control" type="text" autocomplete="off" required name="values[]" value="{{$attribute->values->whereIn('id',$aqar->attributeValues->pluck('id'))->first()->name}}">
                                             <input type="hidden" name="attributes[]" value="{{$attribute->id}}">
                                         </div>
                                         <div class="mb-3 col-md-3">
@@ -342,8 +337,10 @@
                     selectedAttributeLabel.textContent = selectedAttributeName;
                     selectedAttributeLabel.classList.add('form-label');
                     selectedAttributeLabel.setAttribute('for', `${selectedAttributeName}${selectedAttributeId}`)
-                    let selectedAttributeBox = document.createElement('select');
-                    selectedAttributeBox.classList.add('form-control');
+                    let selectedAttributeBox = document.createElement('input');
+                    selectedAttributeBox.autocomplete = 'off';
+                    selectedAttributeBox.required = true;
+                    selectedAttributeBox.classList.add('form-control','attributeValue');
                     selectedAttributeBox.name = 'values[]';
                     selectedAttributeBox.id = `${selectedAttributeName}${selectedAttributeId}`;
                     let attributeId = document.createElement('input');
@@ -367,7 +364,6 @@
                     row.appendChild(removeAttributeButtonContainer);
                     container.appendChild(row);
                     selectedAttributes.push(selectedAttributeId)
-                    getAttributeValues(selectedAttributeId, selectedAttributeName + selectedAttributeId);
 
 
                     removeAttributeButton.addEventListener('click', function (event) {
@@ -397,21 +393,6 @@
             });
         });
 
-        function getAttributeValues(attributeId, selectId) {
-            $.ajax({
-                url: "{{ URL::to('admin/attribute-values') }}/" + attributeId,
-                type: "GET",
-                dataType: "json",
-                success: function (data) {
-                    $.each(data, function (key, value) {
-                        var option = document.createElement('option');
-                        option.value = key;
-                        option.textContent = value;
-                        document.getElementById(selectId).append(option);
-                    });
-                },
-            });
-        }
 
         //Ajax Code To Get The Cities From Zone
         $(document).ready(function() {

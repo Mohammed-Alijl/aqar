@@ -282,8 +282,10 @@
                     selectedAttributeLabel.textContent = selectedAttributeName;
                     selectedAttributeLabel.classList.add('form-label');
                     selectedAttributeLabel.setAttribute('for', `${selectedAttributeName}${selectedAttributeId}`)
-                    let selectedAttributeBox = document.createElement('select');
-                    selectedAttributeBox.classList.add('form-control');
+                    let selectedAttributeBox = document.createElement('input');
+                    selectedAttributeBox.autocomplete = 'off';
+                    selectedAttributeBox.required = true;
+                    selectedAttributeBox.classList.add('form-control','attributeValue');
                     selectedAttributeBox.name = 'values[]';
                     selectedAttributeBox.id = `${selectedAttributeName}${selectedAttributeId}`;
                     let attributeId = document.createElement('input');
@@ -308,7 +310,7 @@
                     row.appendChild(removeAttributeButtonContainer);
                     container.appendChild(row);
                     selectedAttributes.push(selectedAttributeId)
-                    getAttributeValues(selectedAttributeId,selectedAttributeName + selectedAttributeId);
+                    // getAttributeValues(selectedAttributeId,selectedAttributeName + selectedAttributeId);
 
 
                     removeAttributeButton.addEventListener('click', function (event) {
@@ -322,21 +324,21 @@
                 }
             });
         });
-        function getAttributeValues(attributeId,selectId) {
-            $.ajax({
-                url: "{{ URL::to('admin/attribute-values') }}/" + attributeId,
-                type: "GET",
-                dataType: "json",
-                success: function (data) {
-                    $.each(data, function (key, value) {
-                        var option = document.createElement('option');
-                        option.value = key;
-                        option.textContent = value;
-                        document.getElementById(selectId).append(option);
-                    });
-                },
-            });
-        }
+        {{--function getAttributeValues(attributeId,selectId) {--}}
+        {{--    $.ajax({--}}
+        {{--        url: "{{ URL::to('admin/attribute-values') }}/" + attributeId,--}}
+        {{--        type: "GET",--}}
+        {{--        dataType: "json",--}}
+        {{--        success: function (data) {--}}
+        {{--            $.each(data, function (key, value) {--}}
+        {{--                var option = document.createElement('option');--}}
+        {{--                option.value = key;--}}
+        {{--                option.textContent = value;--}}
+        {{--                document.getElementById(selectId).append(option);--}}
+        {{--            });--}}
+        {{--        },--}}
+        {{--    });--}}
+        {{--}--}}
 
 
         //Ajax Code To Get The Cities From Zone
