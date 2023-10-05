@@ -161,6 +161,7 @@
                                     <label class="form-label"
                                            for="email">{{__('admin/pages/aqars.email')}}</label>
                                     <input class="form-control" type="email" name="email" id="email"
+                                           value="info@aqar.com"
                                            placeholder="{{__('admin/pages/aqars.email')}}">
                                 </div>
                             </section>
