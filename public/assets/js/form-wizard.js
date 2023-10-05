@@ -51,55 +51,56 @@ $(function () {
         stepsOrientation: 1,
         onStepChanging: function (event, currentIndex, newIndex) {
             if (currentIndex < newIndex) {
-                // Step 1 form validation
-                if (currentIndex === 0) {
-                    let title = $('#title').parsley();
-                    let zone = $('#zone').parsley();
-                    let category = $('#category').parsley();
-                    let city = $('#city').parsley();
-                    let attachment = $('#input-b3').parsley();
-                    let price = $('#price').parsley();
-                    if (title.isValid() && category.isValid() && zone.isValid() && city.isValid() && attachment.isValid() && price.isValid()) {
-                        return true;
-                    } else {
-                        title.validate();
-                        category.validate();
-                        zone.validate();
-                        city.validate();
-                        attachment.validate();
-                        price.validate();
-                    }
-                }
-                // Step 2 form validation
-                if (currentIndex === 1) {
-                    let latitude = document.getElementById('latitude').value;
-                    let longitude = document.getElementById('longitude').value;
-                    return !!(latitude && longitude);
-                }
-                // Step 3 form validation
-                if (currentIndex === 2) {
-                    let values = document.querySelectorAll('.attributeValue');
-                    let isValid = true;
-
-                    values.forEach(function(value) {
-                        if (value.value === null || value.value.trim() === '') {
-                            value.parsley().validate();
-                            isValid = false;
-                        }
-                    });
-
-                    return isValid;
-                }
-
-                // Step 4 form validation
-                if (currentIndex === 3) {
-                    let email = $('#email').parsley();
-                    if (email.isValid()) {
-                        return true;
-                    } else {
-                        email.validate();
-                    }
-                }
+                // // Step 1 form validation
+                // if (currentIndex === 0) {
+                //     let title = $('#title').parsley();
+                //     let zone = $('#zone').parsley();
+                //     let category = $('#category').parsley();
+                //     let city = $('#city').parsley();
+                //     let attachment = $('#input-b3').parsley();
+                //     let price = $('#price').parsley();
+                //     if (title.isValid() && category.isValid() && zone.isValid() && city.isValid() && attachment.isValid() && price.isValid()) {
+                //         return true;
+                //     } else {
+                //         title.validate();
+                //         category.validate();
+                //         zone.validate();
+                //         city.validate();
+                //         attachment.validate();
+                //         price.validate();
+                //     }
+                // }
+                // // Step 2 form validation
+                // if (currentIndex === 1) {
+                //     let latitude = document.getElementById('latitude').value;
+                //     let longitude = document.getElementById('longitude').value;
+                //     return !!(latitude && longitude);
+                // }
+                // // Step 3 form validation
+                // if (currentIndex === 2) {
+                //     let values = document.querySelectorAll('.attributeValue');
+                //     let isValid = true;
+                //
+                //     values.forEach(function(value) {
+                //         if (value.value === null || value.value.trim() === '') {
+                //             value.parsley().validate();
+                //             isValid = false;
+                //         }
+                //     });
+                //
+                //     return isValid;
+                // }
+                //
+                // // Step 4 form validation
+                // if (currentIndex === 3) {
+                //     let email = $('#email').parsley();
+                //     if (email.isValid()) {
+                //         return true;
+                //     } else {
+                //         email.validate();
+                //     }
+                // }
+                return true;
                 // Always allow step back to the previous step even if the current step is not valid.
             } else {
                 return true;

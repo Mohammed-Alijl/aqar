@@ -47,7 +47,8 @@
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="card">
-                <form action="{{route('aqars.store')}}" method="post" enctype="multipart/form-data" data-parsley-validate>
+                <form action="{{route('aqars.store')}}" method="post" enctype="multipart/form-data"
+                      data-parsley-validate>
                     @csrf
                     <div class="card-body">
                         <div class="main-content-label mg-b-5">
@@ -60,7 +61,8 @@
                                 <div class="control-group form-group">
                                     <label class="form-label" for="title">{{__('admin/pages/aqars.title')}} <span
                                             class="tx-danger">*</span></label>
-                                    <input type="text" class="form-control required" id="title" value="{{ old('title') }}"
+                                    <input type="text" class="form-control required" id="title"
+                                           value="{{ old('title') }}"
                                            placeholder="{{__('admin/pages/aqars.title')}}" name="title" required
                                            data-parsley-required-message="{{__('admin/pages/aqars.title.invalid')}}">
                                 </div>
@@ -73,7 +75,8 @@
                                             {{__('admin/pages/aqars.choose')}}
                                         </option>
                                         @foreach($zones as $zone)
-                                            <option value="{{$zone->id}}" @if(old('zone') == $zone->id) selected @endif>{{$zone->name}}</option>
+                                            <option value="{{$zone->id}}"
+                                                    @if(old('zone') == $zone->id) selected @endif>{{$zone->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -88,7 +91,8 @@
                                     </select>
                                 </div>
                                 <div class="control-group form-group">
-                                    <p class="mg-b-10">{{__('admin/pages/aqars.category')}} <span class="tx-danger">*</span>
+                                    <p class="mg-b-10">{{__('admin/pages/aqars.category')}} <span
+                                            class="tx-danger">*</span>
                                     </p>
                                     <select class="form-control select2" name="category_id" id="category" required
                                             data-parsley-required-message="{{__('admin/pages/aqars.category.invalid')}}">
@@ -96,7 +100,8 @@
                                             {{__('admin/pages/aqars.choose')}}
                                         </option>
                                         @foreach($categories as $category)
-                                            <option value="{{$category->id}}"  @if(old('category') == $category->id) selected @endif>{{$category->name}}</option>
+                                            <option value="{{$category->id}}"
+                                                    @if(old('category') == $category->id) selected @endif>{{$category->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -104,10 +109,11 @@
                                     <label class="form-label"
                                            for="price">{{__('admin/pages/aqars.price')}} <span
                                             class="tx-danger">*</span></label>
-                                    <input class="form-control" type="text" name="price" id="price" required maxlength="50"
+                                    <input class="form-control" type="text" name="price" id="price" required
+                                           maxlength="50"
                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                            data-parsley-required-message="{{__('admin/pages/aqars.price.required')}}"
-                                    placeholder="{{__('admin/pages/aqars.price')}}">
+                                           placeholder="{{__('admin/pages/aqars.price')}}">
                                 </div>
                                 <div class="control-group form-group">
                                     <label class="form-label"
@@ -116,7 +122,7 @@
                                               rows="5"></textarea>
                                 </div>
                                 <input id="input-b3" name="attachments[]" type="file" class="file" multiple required
-                                       data-show-upload="false" data-show-caption="true"  accept="image/*"
+                                       data-show-upload="false" data-show-caption="true" accept="image/*"
                                        data-max-file-size="2048"
                                        data-msg-placeholder="{{__('admin/pages/aqars.add.images.videos')}}">
                             </section>
@@ -130,7 +136,7 @@
                             <section class="attributesContainer">
                                 <div class="control-group form-group">
                                     <p class="mg-b-10">{{__('admin/pages/aqars.attributes')}}</p>
-                                    <select id="inputAttributes" class="form-control select2"  style="width: 100%">
+                                    <select id="inputAttributes" class="form-control select2" style="width: 100%">
                                         <option disabled selected label="{{__('admin/pages/aqars.choose')}}">
                                             {{__('admin/pages/aqars.choose')}}
                                         </option>
@@ -145,7 +151,8 @@
                                 <div class="control-group form-group">
                                     <label class="form-label"
                                            for="mobile_number">{{__('admin/pages/aqars.mobile_number')}}</label>
-                                    <input class="form-control" type="text" name="mobile_number" id="mobile_number" maxlength="15"
+                                    <input class="form-control" type="text" name="mobile_number" id="mobile_number"
+                                           maxlength="15"
                                            value="966551800307"
                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                            placeholder="{{__('admin/pages/aqars.mobile_number')}}">
@@ -153,7 +160,8 @@
                                 <div class="control-group form-group">
                                     <label class="form-label"
                                            for="whatsapp_number">{{__('admin/pages/aqars.whatsapp_number')}}</label>
-                                    <input class="form-control" type="text" name="whatsapp_number" id="whatsapp_number" maxlength="15"
+                                    <input class="form-control" type="text" name="whatsapp_number" id="whatsapp_number"
+                                           maxlength="15"
                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                            value="966551800307"
                                            placeholder="{{__('admin/pages/aqars.whatsapp_number')}}">
@@ -168,9 +176,11 @@
                             </section>
                             <h3>{{__('admin/pages/aqars.related.aqars')}}</h3>
                             <section>
-                                <select class="form-control select2" multiple="multiple" name="related_aqars[]" style="width: 100%">
+                                <select class="form-control select2" multiple="multiple" name="related_aqars[]"
+                                        style="width: 100%">
                                     @foreach($aqars as $aqar)
-                                        <option value="{{ $aqar->id }}" @if(in_array($aqar->id, old('related_aqars', []))) selected @endif>{{ $aqar->title }}</option>
+                                        <option value="{{ $aqar->id }}"
+                                                @if(in_array($aqar->id, old('related_aqars', []))) selected @endif>{{ $aqar->title }}</option>
                                     @endforeach
                                 </select>
                             </section>
@@ -196,48 +206,101 @@
         $("#input-b3").fileinput({
             minFileCount: 1,
             theme: 'fas',
-            allowedFileExtensions: ["jpg", "jpeg", "png", "svg","bmp","gif","webp"],
+            allowedFileExtensions: ["jpg", "jpeg", "png", "svg", "bmp", "gif", "webp"],
             showUpload: false,
             browseOnZoneClick: true,
             language: 'ar',
         });
 
         function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 23.8859, lng: 45.0792},
-                zoom: 8
-            });
-            var outerCircleMarker = new google.maps.Marker({
-                map: map,
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    fillColor: 'black',
-                    strokeColor: 'black',
-                    strokeOpacity: 0.1,
-                    scale: 35
-                }
-            });
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
 
-            var marker = new google.maps.Marker({
-                map: map,
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    fillColor: 'white',
-                    strokeColor: 'black',
-                    strokeWeight: 8,
-                    scale: 8
-                }
-            });
+                    document.getElementById('latitude').value = userLocation.lat;
+                    document.getElementById('longitude').value = userLocation.lng;
 
-            map.addListener('click', function (event) {
-                marker.setPosition(event.latLng);
-                outerCircleMarker.setPosition(event.latLng);
-                document.getElementById('latitude').value = event.latLng.lat();
-                document.getElementById('longitude').value = event.latLng.lng();
-            });
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: userLocation,
+                        zoom: 50
+                    });
+
+                    var outerCircleIcon = {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: 'black',
+                        strokeColor: 'black',
+                        strokeOpacity: 0.1,
+                        scale: 35
+                    };
+
+                    var innerCircleIcon = {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: 'white',
+                        strokeColor: 'black',
+                        strokeWeight: 8,
+                        scale: 8
+                    };
+
+                    var outerCircleMarker = new google.maps.Marker({
+                        map: map,
+                        icon: outerCircleIcon,
+                        position: userLocation
+                    });
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        icon: innerCircleIcon,
+                        position: userLocation
+                    });
+
+                    map.addListener('click', function (event) {
+                        marker.setPosition(event.latLng);
+                        outerCircleMarker.setPosition(event.latLng);
+                        document.getElementById('latitude').value = event.latLng.lat();
+                        document.getElementById('longitude').value = event.latLng.lng();
+                    });
+                });
+            } else {
+                const myLatLng = {lat: 23.8859, lng: 45.0792};
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 20,
+                    center: myLatLng,
+                });
+
+                var outerCircleMarker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: 'black',
+                        strokeColor: 'black',
+                        strokeOpacity: 0.1,
+                        scale: 35
+                    }
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: 'white',
+                        strokeColor: 'black',
+                        strokeWeight: 8,
+                        scale: 8
+                    }
+                });
+                map.addListener('click', function (event) {
+                    marker.setPosition(event.latLng);
+                    outerCircleMarker.setPosition(event.latLng);
+                    document.getElementById('latitude').value = event.latLng.lat();
+                    document.getElementById('longitude').value = event.latLng.lng();
+                });
+            }
         }
-
-
 
 
     </script>
@@ -288,7 +351,7 @@
                     let selectedAttributeBox = document.createElement('input');
                     selectedAttributeBox.autocomplete = 'off';
                     selectedAttributeBox.required = true;
-                    selectedAttributeBox.classList.add('form-control','attributeValue');
+                    selectedAttributeBox.classList.add('form-control', 'attributeValue');
                     selectedAttributeBox.name = 'values[]';
                     selectedAttributeBox.id = `${selectedAttributeName}${selectedAttributeId}`;
                     let attributeId = document.createElement('input');
@@ -298,7 +361,6 @@
                     selectedAttributeContainer.appendChild(selectedAttributeLabel);
                     selectedAttributeContainer.appendChild(selectedAttributeBox);
                     selectedAttributeContainer.appendChild(attributeId);
-
 
 
                     let removeAttributeButtonContainer = document.createElement('div');
@@ -345,17 +407,17 @@
 
 
         //Ajax Code To Get The Cities From Zone
-        $(document).ready(function() {
-            $('#zone').on('change', function() {
+        $(document).ready(function () {
+            $('#zone').on('change', function () {
                 var zoneId = $(this).val();
                 if (zoneId) {
                     $.ajax({
                         url: "{{ URL::to('admin/zone-cities') }}/" + zoneId,
                         type: "GET",
                         dataType: "json",
-                        success: function(data) {
+                        success: function (data) {
                             $('#city').empty();
-                            $.each(data, function(key, value) {
+                            $.each(data, function (key, value) {
                                 $('#city').append('<option value="' +
                                     key + '">' + value + '</option>');
                             });
@@ -369,6 +431,5 @@
 
         });
     </script>
-
 
 @endsection
