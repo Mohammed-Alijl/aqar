@@ -346,7 +346,7 @@
             <div class="paddingY-section">
                 <div class="contact-us">
                     <div class="d-flex align-items-center justify-content-start flex-wrap">
-                        <a href="#" class="btn btn-border">
+                        <a href="http://api.whatsapp.com/send?phone=966551800307" class="btn btn-border">
                             <svg>
                                 <use href="{{asset('frontend/icons.svg#calling')}}"></use>
                             </svg>
