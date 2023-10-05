@@ -19,22 +19,22 @@
             <div class="col-12 col-md-4 mb-4 mb-md-0">
                 <ul class="social-list">
                     <p>تواصل معنا على منصات التوصل الاجتماعي</p>
-                    <li><a href="#" class="social-icon">
+                    <li><a href="http://api.whatsapp.com/send?phone=966551800307" class="social-icon">
                             <svg>
                                 <use href="{{asset('frontend/icons.svg#whatsapp')}}"></use>
                             </svg>
                         </a></li>
-                    <li><a href="#" class="social-icon">
+                    <li><a href="http://twitter.com" class="social-icon">
                             <svg>
                                 <use href={{asset('frontend/icons.svg#twitter')}}></use>
                             </svg>
                         </a></li>
-                    <li><a href="#" class="social-icon">
+                    <li><a href="http://facebook.com" class="social-icon">
                             <svg>
                                 <use href="{{asset('frontend/icons.svg#facebook')}}"></use>
                             </svg>
                         </a></li>
-                    <li><a href="#" class="social-icon">
+                    <li><a href="http://instagram.com" class="social-icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_36_3969)">

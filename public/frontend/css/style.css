@@ -1,5 +1,5 @@
 /*===================
-	Global style 
+	Global style
 =====================*/
 * {
   box-sizing: border-box;
@@ -38,8 +38,8 @@ a {
   color: #797C83;
 }
 .section-header .list-formate-btn {
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   border-radius: 8px;
   border: 1px solid #E6E6E6;
 }
@@ -48,16 +48,16 @@ a {
 }
 .section-header .list-formate-btn[class*=list-1] svg {
   fill: #009E52;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
 }
 .section-header .list-formate-btn[class*=list-1].active svg {
   fill: #fff;
 }
 .section-header .list-formate-btn[class*=list-2] svg {
   stroke: #009E52;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 .section-header .list-formate-btn[class*=list-2].active svg {
   stroke: #fff;
@@ -89,8 +89,8 @@ a {
   transition: all ease-in-out 0.3s;
 }
 .btn-border svg {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   stroke: #009E52;
   margin-left: 10px;
   transition: all ease-in-out 0.3s;
@@ -197,7 +197,7 @@ a {
 }
 
 /*===================
-	header style 
+	header style
 =====================*/
 .header {
   animation: slideDown 0.35s ease-out;
@@ -232,6 +232,13 @@ a {
   .header .menu-btn {
     display: flex;
   }
+}
+
+.header-page {
+  background-image: url("../img/slider.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .menu-list .nav li.nav-item {
@@ -302,7 +309,7 @@ a {
 }
 
 /*===================
-	footer style 
+	footer style
 =====================*/
 .footer {
   background-color: #009E52;
@@ -329,8 +336,8 @@ a {
   margin-left: 10px;
 }
 .footer .social-list li .social-icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: #fff;
   display: flex;
@@ -338,8 +345,8 @@ a {
   justify-content: center;
 }
 .footer .social-list li .social-icon svg {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   fill: #00B05A;
 }
 .footer .social-list li a {
@@ -347,13 +354,9 @@ a {
 }
 
 /*===================
-	home page style 
+	home page style
 =====================*/
 .home-page .slider {
-  background-image: url("../img/slider.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 600px;
   display: flex;
   align-items: center;
@@ -426,8 +429,8 @@ a {
   color: #009E52;
 }
 .home-page .slider .search-box svg {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 .home-page .slider .search-box .filter-btn {
   background-color: rgba(0, 158, 82, 0.031372549);
@@ -471,18 +474,18 @@ a {
   display: inline-block;
 }
 .home-page .choosing-list .choose-card .card-svg svg {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 .home-page .choosing-list .choose-card .card-svg:after {
   content: "";
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background-color: #009E52;
   border-radius: 50%;
   position: absolute;
   left: 0;
-  bottom: -3px;
+  bottom: 0;
   z-index: -1;
 }
 .home-page .choosing-list .choose-card h4 {
@@ -507,6 +510,9 @@ a {
 }
 .home-page .fillter-modal .modal-body .search-box {
   padding: 0px;
+  width: 100%;
+}
+.home-page .fillter-modal .modal-body .search-box .search-form {
   width: 100%;
 }
 .home-page .fillter-modal .modal-body .nav-tabs {
@@ -630,7 +636,7 @@ a {
 }
 
 /*===================
-	aqar page style 
+	aqar page style
 =====================*/
 .aqar-page h5,
 .aqar-page h4 {
@@ -797,8 +803,8 @@ a {
   justify-content: center;
 }
 .aqar-page .contact-us .contact-list li a svg {
-  width: 30px;
-  height: 30px;
+  width: 27px;
+  height: 27px;
 }
 .aqar-page .contact-us .contact-list li a.calling {
   background-color: #000000;
@@ -823,19 +829,55 @@ a {
   .aqar-page .details .details-list li {
     width: 100%;
   }
-  .aqar-page .photos {
-    height: auto;
-  }
-  .aqar-page .photos > div:first-of-type {
-    width: 100%;
-    height: 300px;
-    margin-bottom: 10px;
-  }
-  .aqar-page .photos > div:last-of-type {
-    width: 100%;
-  }
-  .aqar-page .photos > div:last-of-type > div {
-    height: 300px;
-    margin-bottom: 10px;
-  }
+}
+
+/*===================
+ privacy and conditions pages
+=====================*/
+.privecy-page {
+  padding: 50px 0;
+}
+.privecy-page h3 {
+  font-weight: 600;
+  color: #009E52;
+  text-align: center;
+}
+.privecy-page a {
+  color: #009E52;
+}
+.privecy-page p.intro {
+  line-height: 2;
+  width: 70%;
+  text-align: center;
+  color: #797C83;
+  margin: 0 auto;
+}
+.privecy-page .terms-list {
+  width: 70%;
+  margin: 0 auto;
+  line-height: 2;
+}
+.privecy-page .terms-list li {
+  margin-bottom: 20px;
+}
+.privecy-page .terms-list li h6 {
+  position: relative;
+}
+.privecy-page .terms-list li h6 > span {
+  width: 17px;
+  height: 17px;
+  background-color: rgba(0, 158, 82, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  right: -30px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.privecy-page .terms-list li h6 > span > span {
+  width: 8px;
+  height: 8px;
+  background-color: #009E52;
+  border-radius: 50%;
 }/*# sourceMappingURL=style.css.map */
