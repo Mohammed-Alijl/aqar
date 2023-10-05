@@ -21,7 +21,7 @@ class StoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        $size = count($this->input('attributes'));
+        $size = $this->input('attributes') ? count($this->input('attributes')) : 0;
         return [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
