@@ -116,7 +116,8 @@
                                               rows="5"></textarea>
                                 </div>
                                 <input id="input-b3" name="attachments[]" type="file" class="file" multiple required
-                                       data-show-upload="false" data-show-caption="true"
+                                       data-show-upload="false" data-show-caption="true"  accept="image/*"
+                                       data-max-file-size="2048"
                                        data-msg-placeholder="{{__('admin/pages/aqars.add.images.videos')}}">
                             </section>
                             <h3>{{__('admin/pages/aqars.location')}}</h3>
@@ -195,9 +196,10 @@
         $("#input-b3").fileinput({
             minFileCount: 1,
             theme: 'fas',
-            allowedFileExtensions: ["jpg", "jpeg", "png", "svg", 'mp4', 'mpeg'],
+            allowedFileExtensions: ["jpg", "jpeg", "png", "svg","bmp","gif","webp"],
             showUpload: false,
             browseOnZoneClick: true,
+            language: 'ar',
         });
 
         function initMap() {
