@@ -145,7 +145,7 @@ class AqarRepository implements BasicRepositoryInterface
 
         $aqar->attributes()->detach();
 
-        $aqar->attributeValues()->detach();
+        $aqar->attributeValues()->delete();
 
         $aqar->related()->detach();
 
