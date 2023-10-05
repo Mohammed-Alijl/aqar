@@ -60,7 +60,7 @@
                                 <div class="control-group form-group">
                                     <label class="form-label" for="title">{{__('admin/pages/aqars.title')}} <span
                                             class="tx-danger">*</span></label>
-                                    <input type="text" class="form-control required" id="title"
+                                    <input type="text" class="form-control required" id="title" value="{{ old('title') }}"
                                            placeholder="{{__('admin/pages/aqars.title')}}" name="title" required
                                            data-parsley-required-message="{{__('admin/pages/aqars.title.invalid')}}">
                                 </div>
@@ -73,7 +73,7 @@
                                             {{__('admin/pages/aqars.choose')}}
                                         </option>
                                         @foreach($zones as $zone)
-                                            <option value="{{$zone->id}}">{{$zone->name}}</option>
+                                            <option value="{{$zone->id}}" @if(old('zone') == $zone->id) selected @endif>{{$zone->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -96,7 +96,7 @@
                                             {{__('admin/pages/aqars.choose')}}
                                         </option>
                                         @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            <option value="{{$category->id}}"  @if(old('category') == $category->id) selected @endif>{{$category->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -123,8 +123,8 @@
                             <h3>{{__('admin/pages/aqars.location')}}</h3>
                             <section>
                                 <div id="map"></div>
-                                <input type="hidden" name="latitude" id="latitude">
-                                <input type="hidden" name="longitude" id="longitude">
+                                <input type="hidden" name="latitude" id="latitude" value="{{old('latitude')}}">
+                                <input type="hidden" name="longitude" id="longitude" value="{{old('longitude')}}">
                             </section>
                             <h3>{{__('admin/pages/aqars.attributes')}}</h3>
                             <section class="attributesContainer">
@@ -170,7 +170,7 @@
                             <section>
                                 <select class="form-control select2" multiple="multiple" name="related_aqars[]" style="width: 100%">
                                     @foreach($aqars as $aqar)
-                                    <option value="{{$aqar->id}}">{{$aqar->title}}</option>
+                                        <option value="{{ $aqar->id }}" @if(in_array($aqar->id, old('related_aqars', []))) selected @endif>{{ $aqar->title }}</option>
                                     @endforeach
                                 </select>
                             </section>
