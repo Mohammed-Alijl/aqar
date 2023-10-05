@@ -75,12 +75,12 @@
                         </a></li>
                     <div class="d-block mt-4">
                         <li>
-                            <a href="#">
+                            <a href="{{route('privacy-policy')}}">
                                 سياسة الخصوصية
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('terms-conditions')}}">
                                 الشروط والاحكام </a>
                         </li>
                     </div>

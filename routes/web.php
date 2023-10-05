@@ -31,7 +31,15 @@ Route::get('zone-cities/{id}',[ZoneController::class,'getCities']);
 // Category Page
 Route::get('/categories/{slug}', [CategoryController::class, 'show'])->name('category.show');
 
+// Privacy Policy
+Route::get('privacy-policy',function (){
+    return view('frontend.privacy-policy');
+})->name('privacy-policy');
 
+// Terms and Conditions
+Route::get('terms-conditions',function (){
+    return view('frontend.terms-conditions');
+})->name('terms-conditions');
 
 
 Route::group(
